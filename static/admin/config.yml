@@ -4,7 +4,7 @@ backend:
 
 local_backend: true
 
-media_folder: static/images
+media_folder: /static/images
 public_folder: /images
 
 collections:
@@ -12,8 +12,8 @@ collections:
     label: "Updates"
     folder: "content/updates"
     create: true
-    slug: "index"
-    media_folder: "static/images/uploads"
+    slug: "{{slug}}"
+    media_folder: "/static/images/uploads"
     public_folder: "/images/uploads"
     path: "{{slug}}-{{month}}-{{day}}/index"
     editor:
@@ -35,11 +35,12 @@ collections:
       - label: "Media"
         name: "media"
         widget: "list"
-        summary: "{{fields.type}}"
+        summary: "{{fields.image}}"
         fields:
           - label: Image
             name: image
             widget: object
+            required: false
             fields:
               - label: File
                 name: src
@@ -51,7 +52,9 @@ collections:
           - label: Embed
             name: embed
             widget: text
+            required: false
 
           - label: "Video"
             name: "video"
             widget: "file"
+            required: false
