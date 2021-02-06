@@ -1,5 +1,5 @@
 import { PageProps } from "gatsby";
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 
 interface SiteContextData {
   dark?: boolean;
@@ -14,6 +14,14 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
   location,
 }) => {
   const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    setDark(location.pathname === "/professional");
+  }, [location.pathname]);
+
+  useEffect(() => {
+    // document.documentElement.classList.toggle("dark", dark);
+  }, [dark]);
 
   return (
     <SiteContext.Provider value={{ dark }}>{children}</SiteContext.Provider>

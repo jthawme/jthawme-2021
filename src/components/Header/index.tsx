@@ -5,6 +5,7 @@ import classNames from "classnames";
 import styles from "./Header.module.scss";
 import Logo from "../Logo";
 import { ContentContainer } from "../ContentContainer";
+import { useSiteContext } from "../SiteContext";
 
 const LINKS = [
   {
@@ -22,6 +23,7 @@ const LINKS = [
 ];
 
 const Header: React.FC<{ className?: string }> = ({ className }) => {
+  const { dark } = useSiteContext();
   return (
     <ContentContainer
       tagName="header"
@@ -29,7 +31,9 @@ const Header: React.FC<{ className?: string }> = ({ className }) => {
       level="outside"
     >
       <div className={styles.logo}>
-        <Logo width={48} height={48} />
+        <Link to="/">
+          <Logo invert={dark} width={48} height={48} />
+        </Link>
       </div>
       <div className={styles.links}>
         <nav className={styles.nav}>

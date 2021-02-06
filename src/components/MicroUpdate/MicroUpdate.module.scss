@@ -2,9 +2,13 @@
   display: grid;
 
   grid-template-columns: repeat(12, 1fr);
-  gap: var(--size-unit-10);
+  gap: var(--size-gap);
 
   margin-bottom: 200px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .media {

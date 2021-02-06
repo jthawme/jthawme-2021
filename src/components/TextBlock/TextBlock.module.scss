@@ -1,0 +1,19 @@
+.wrapper {
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: var(--size-gap);
+}
+
+.block {
+  grid-column: 3 / span 10;
+
+  font-size: var(--font-size-large);
+
+  em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--color-accent);
+  }
+}

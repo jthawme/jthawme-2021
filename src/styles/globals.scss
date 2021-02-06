@@ -23,7 +23,12 @@ html {
 
   background-color: var(--color-bg);
 
-  line-height: 1.4;
+  line-height: 1.5;
+}
+
+html.dark {
+  --color-bg: var(--color-dark-bg);
+  --color-text: var(--color-dark-text);
 }
 
 input,
