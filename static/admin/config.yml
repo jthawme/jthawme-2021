@@ -48,6 +48,7 @@ collections:
               - label: Alt Text
                 name: alt
                 widget: text
+                required: false
 
           - label: Embed
             name: embed

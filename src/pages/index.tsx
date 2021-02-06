@@ -1,8 +1,9 @@
-import { PageProps } from "gatsby";
+import { graphql, PageProps } from "gatsby";
 import * as React from "react";
 import Helmet from "react-helmet";
 import { ContentContainer } from "../components/ContentContainer";
 import { MicroUpdate } from "../components/MicroUpdate";
+import { MediaItemData } from "../components/MicroUpdate/MediaItem";
 
 const TEST_TEXT = `
 ## This is some test text
@@ -12,47 +13,65 @@ and its a chance to see how it may respond to mad things, like for instance a ht
 
 or maybe another para _like_ this, not exactly this but **like it**`;
 
-const IndexPage: React.FC<PageProps> = () => {
+interface MicroUpdateData {
+  id: string;
+  frontmatter: {
+    title: string;
+    date: string;
+    media?: MediaItemData[];
+    body?: string;
+  };
+}
+
+interface HomeData {
+  updates: {
+    edges: Array<{
+      node: MicroUpdateData;
+    }>;
+  };
+}
+
+const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
   return (
     <>
       <Helmet title="Home" />
       <ContentContainer>
-        <MicroUpdate
-          date={new Date().getTime()}
-          title="This is a title"
-          media={[
-            {
-              embed: "https://www.youtube.com/watch?v=5BRZoqUTD5M",
-            },
-          ]}
-        />
-        <MicroUpdate
-          date={new Date().getTime()}
-          title="This is a title"
-          media={[
-            {
-              image: { src: "https://pbs.twimg.com/media/Dy5Jp3TXQAA-yek.jpg" },
-            },
-          ]}
-          body={TEST_TEXT}
-        />
-        <MicroUpdate
-          date={new Date().getTime()}
-          title="This is a title"
-          body={TEST_TEXT}
-        />
-        <MicroUpdate
-          date={new Date().getTime()}
-          title="This is a title"
-          media={[
-            {
-              image: { src: "https://pbs.twimg.com/media/EOMgKzKX4AAz7BB.jpg" },
-            },
-          ]}
-        />
+        {data.updates.edges.map(({ node }) => (
+          <MicroUpdate
+            date={node.frontmatter.date}
+            title={node.frontmatter.title}
+            media={node.frontmatter.media}
+            body={node.frontmatter.body}
+          />
+        ))}
       </ContentContainer>
     </>
   );
 };
+
+export const query = graphql`
+  query HomePageQuery {
+    updates: allMarkdownRemark(
+      filter: { fileAbsolutePath: { regex: "/(updates)/" } }
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            media {
+              image {
+                alt
+                src
+              }
+            }
+            title
+            date
+            # body
+          }
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;

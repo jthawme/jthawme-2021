@@ -23,6 +23,14 @@ module.exports = {
       __key: "pages",
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "updates",
+        path: "./content/updates/",
+      },
+      __key: "updates",
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `JT`,

@@ -9,7 +9,7 @@ import { Markdown } from "../Markdown";
 interface MicroUpdateProps {
   className?: string;
   media?: MediaItemData[];
-  date: number;
+  date: string;
   title: string;
   body?: string;
 }

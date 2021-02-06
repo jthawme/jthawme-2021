@@ -10,13 +10,19 @@ export interface MediaItemData {
     alt?: string;
   };
   embed?: string;
+  video?: string;
 }
 
 interface MediaItemProps extends MediaItemData {
   className?: string;
 }
 
-const MediaItem: React.FC<MediaItemProps> = ({ className, image, embed }) => {
+const MediaItem: React.FC<MediaItemProps> = ({
+  className,
+  image,
+  embed,
+  video,
+}) => {
   const inner = useMemo(() => {
     if (image) {
       return <img src={image.src} alt={image.alt || ""} />;
@@ -24,6 +30,10 @@ const MediaItem: React.FC<MediaItemProps> = ({ className, image, embed }) => {
 
     if (embed) {
       return <Embed src={embed} />;
+    }
+
+    if (video) {
+      return <Embed src={video} />;
     }
 
     return null;

@@ -61,6 +61,7 @@ const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
 
   return (
     <div className={classNames(styles.list, className)}>
+      {tracks.length === 0 && <span>Asking señor last.fm for tracks...</span>}
       {tracks.map((track) => (
         <div key={track.id} className={styles.row}>
           <div className={styles.rowTitle}>{track.artist}</div>
