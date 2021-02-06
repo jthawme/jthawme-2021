@@ -16,6 +16,10 @@ export const tickUpdate = (cb): ((e?: any) => void) => {
   return requestTick;
 };
 
+export const random = (to: number, from = 0): number => {
+  return Math.random() * (to - from) + from;
+};
+
 export const clamp = (num: number, min: number, max: number): number => {
   return Math.min(Math.max(num, min), max);
 };

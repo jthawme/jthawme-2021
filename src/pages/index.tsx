@@ -1,8 +1,14 @@
+import { PageProps } from "gatsby";
 import * as React from "react";
+import Helmet from "react-helmet";
 
-// markup
-const IndexPage = () => {
-  return <main>hey</main>;
+const IndexPage: React.FC<PageProps> = () => {
+  return (
+    <>
+      <Helmet title="Home" />
+      hey
+    </>
+  );
 };
 
 export default IndexPage;
