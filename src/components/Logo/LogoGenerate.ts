@@ -148,8 +148,12 @@ export const generate = (
 
   ctx.save();
   ctx.lineWidth = strokeWidth;
-  ctx.fillStyle = invert ? "white" : "#f44336";
-  ctx.strokeStyle = invert ? "white" : "#f44336";
+  ctx.fillStyle = invert
+    ? "white"
+    : getComputedStyle(canvas).getPropertyValue("--color-accent");
+  ctx.strokeStyle = invert
+    ? "white"
+    : getComputedStyle(canvas).getPropertyValue("--color-accent");
 
   // Move into the clipped zone
   ctx.translate(strokeWidth * (mod / 2), strokeWidth * (mod / 2));

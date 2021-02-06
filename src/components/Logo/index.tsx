@@ -15,13 +15,22 @@ const Logo: React.FC<LogoProps> = ({
   height = 128,
   invert = false,
 }) => {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const timerRef = useRef<number>(-1);
 
   const regen = useCallback(() => {
     const ctx = canvasRef.current.getContext("2d");
 
     generate(canvasRef.current, ctx, width, height, width / 28, invert);
+
+    const img = canvasRef.current.toDataURL("image/png", 0.5);
+    const link = document.querySelector<HTMLLinkElement | null>(
+      "link[rel~='icon']",
+    );
+
+    if (link) {
+      link.href = img;
+    }
   }, []);
 
   useEffect(() => {

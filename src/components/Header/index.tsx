@@ -4,6 +4,7 @@ import classNames from "classnames";
 
 import styles from "./Header.module.scss";
 import Logo from "../Logo";
+import { ContentContainer } from "../ContentContainer";
 
 const LINKS = [
   {
@@ -22,7 +23,11 @@ const LINKS = [
 
 const Header: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <header className={classNames(styles.header, className)}>
+    <ContentContainer
+      tagName="header"
+      className={classNames(styles.header, className)}
+      level="outside"
+    >
       <div className={styles.logo}>
         <Logo width={48} height={48} />
       </div>
@@ -37,7 +42,7 @@ const Header: React.FC<{ className?: string }> = ({ className }) => {
           ))}
         </nav>
       </div>
-    </header>
+    </ContentContainer>
   );
 };
 

@@ -8,7 +8,6 @@ module.exports = {
       resolve: "gatsby-plugin-sass",
       options: {
         sassOptions: {
-          data: `@import "${__dirname}/src/styles/common";`,
           includePaths: ["src/styles"],
         },
       },
@@ -22,6 +21,18 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `JT`,
+        short_name: `JT`,
+        start_url: `/?standalone=1`,
+        background_color: `#ffffff`,
+        theme_color: `#f44336`,
+        display: `standalone`,
+        icon: `src/images/logo.png`,
+      },
     },
   ],
 };

@@ -1,0 +1,25 @@
+@import "common";
+
+.container {
+  max-width: var(--container-width);
+  width: 100%;
+
+  margin: var(--container-margin, 0 auto);
+  padding: var(--container-padding, 0 var(--size-unit-4));
+}
+
+.inside {
+  --container-width: 1280px;
+
+  @include tablet {
+    --container-padding: 0 var(--size-unit-20);
+  }
+}
+
+.outside {
+  --container-width: 1920px;
+
+  @include tablet {
+    --container-padding: 0 var(--size-unit-4);
+  }
+}
