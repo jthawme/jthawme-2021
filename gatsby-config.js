@@ -4,7 +4,15 @@ module.exports = {
   },
   plugins: [
     "gatsby-plugin-netlify-cms",
-    "gatsby-plugin-sass",
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        sassOptions: {
+          data: `@import "${__dirname}/src/styles/common";`,
+          includePaths: ["src/styles"],
+        },
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-transformer-remark",
     {
