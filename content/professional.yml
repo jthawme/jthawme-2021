@@ -1,0 +1,12 @@
+body: >-
+  I have been a \_Web Developer\_ for (new Date().getFullYear() - 2011) = 10
+  years now and have worked on projects small and large, in studios small and
+  large.
+
+
+  Primarily working as a \_front end developer\_ using Javascript and specialising in \_React\_, I also have non trivial experience in working with databases, server infrastructure, back end technologies and even further more creative outlets such as Physical Computing, Creating Coding and Graphic Design.
+companies:
+  - label: Amazon
+mentions:
+  - label: Creative Boom Dec 2020
+    url: https://www.creativeboom.com/inspiration/life-support-is-a-new-digital-tool-to-help-us-talk-about-death/
