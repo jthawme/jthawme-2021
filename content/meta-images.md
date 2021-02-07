@@ -1,4 +1,16 @@
 ---
 me:
   - image: /images/meta/001.jpg
+  - image: /images/meta/002.jpg
+  - image: /images/meta/003.jpg
+  - image: /images/meta/004.jpg
+  - image: /images/meta/005.jpg
+  - image: /images/meta/006.jpg
+  - image: /images/meta/007.jpg
+  - image: /images/meta/008.jpg
+  - image: /images/meta/009.jpg
+  - image: /images/meta/010.jpg
+  - image: /images/meta/011.jpg
+  - image: /images/meta/012.jpg
+  - image: /images/meta/013.gif
 ---
