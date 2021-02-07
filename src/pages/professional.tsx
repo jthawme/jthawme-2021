@@ -22,8 +22,6 @@ const ProfessionalPage: React.FC<PageProps<ProfessionalPageProps>> = ({
   data,
   location,
 }) => {
-  console.log(data);
-
   return (
     <>
       <SEO title="Professional" urlPath={location.pathname} />

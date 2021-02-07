@@ -60,11 +60,16 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
+            serialize: ({ query: { site, updates } }) => {
               return updates.edges.map((edge) => {
                 return {
                   title: edge.node.title,
-                  description: edge.node.rawMarkdownBody,
+                  description: `${edge.node.frontmatter.media
+                    .filter((media) => media.image && media.image.src)
+                    .map(
+                      (media) =>
+                        `<img src="${media.image.src}" alt="${media.image.alt}"/>`,
+                    )} ${edge.node.rawMarkdownBody}`,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
                   guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -88,7 +93,6 @@ module.exports = {
                       html
                       frontmatter {
                         media {
-                          video
                           image {
                             alt
                             src

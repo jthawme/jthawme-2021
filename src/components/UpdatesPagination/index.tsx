@@ -53,7 +53,6 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
         // fetch("/.netlify/functions/more")
         //   .then((resp) => resp.json())
         .then((data) => {
-          console.log("load more", data);
           onNewPosts([]);
 
           setTimeout(() => {
