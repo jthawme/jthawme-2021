@@ -28,7 +28,9 @@ const NewsletterSignup: React.FC<NewsLetterSignupProps> = ({
       <TextBlock>{children}</TextBlock>
       <div className={styles.formWrapper}>
         <form className={styles.form}>
-          <input type="email" placeholder="E-mail in here" required />
+          <div>
+            <input type="email" placeholder="E-mail in here" required />
+          </div>
           <span>+</span>
           <button>Click here</button>
         </form>

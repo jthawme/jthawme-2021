@@ -2,6 +2,8 @@ import React, { useMemo } from "react";
 import classNames from "classnames";
 import { VideoPlayer } from "../VideoPlayer";
 
+import styles from "./Embed.module.scss";
+
 enum EmbedType {
   CodeSandbox = "codesandbox",
   Video = "video",
@@ -81,40 +83,44 @@ const Embed: React.FC<EmbedProps> = ({ src, className }) => {
 
   if (EmbedType.CodeSandbox === params.type) {
     return (
-      <iframe
-        className={cls}
-        src={`https://codesandbox.io/embed/${params.data.id}?fontsize=14&hidenavigation=1&hidedevtools=1&codemirror=1&view=preview&theme=dark`}
-        style={{
-          width: "100%",
-          height: "var(--embed-height, 480px)",
-          border: 0,
-          borderRadius: "4px",
-          overflow: "hidden",
-        }}
-        title={params.data.id}
-        allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-        sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-      ></iframe>
+      <div className={styles.embedWrapper}>
+        <iframe
+          className={cls}
+          src={`https://codesandbox.io/embed/${params.data.id}?fontsize=14&hidenavigation=1&hidedevtools=1&codemirror=1&view=preview&theme=dark`}
+          style={{
+            width: "100%",
+            height: "100%",
+            border: 0,
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+          title={params.data.id}
+          allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+          sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+        ></iframe>
+      </div>
     );
   }
 
   if (EmbedType.Youtube === params.type) {
     return (
-      <iframe
-        width="560"
-        height="315"
-        style={{
-          width: "100%",
-          height: "var(--embed-height, 480px)",
-          border: 0,
-          borderRadius: "4px",
-          overflow: "hidden",
-        }}
-        src="https://www.youtube.com/embed/5BRZoqUTD5M?rel=0&controls=0"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
+      <div className={styles.embedWrapper}>
+        <iframe
+          width="560"
+          height="315"
+          style={{
+            width: "100%",
+            height: "100%",
+            border: 0,
+            borderRadius: "4px",
+            overflow: "hidden",
+          }}
+          src={`https://www.youtube.com/embed/${params.data.id}?rel=0&controls=0`}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      </div>
     );
   }
 

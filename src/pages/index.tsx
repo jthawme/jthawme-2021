@@ -46,6 +46,7 @@ export const query = graphql`
     updates: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(updates)/" } }
       sort: { fields: frontmatter___date, order: DESC }
+      limit: 10
     ) {
       edges {
         node {

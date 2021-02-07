@@ -97,12 +97,14 @@ collections:
       - label: "Body"
         name: "body"
         widget: "markdown"
+        minimal: true
         required: false
 
       - label: "Media"
         name: "media"
         widget: "list"
         summary: "{{fields.image}}"
+        minimize_collapsed: true
         fields:
           - label: Image
             name: image

@@ -11,7 +11,15 @@ interface MarkdownProps extends React.HTMLAttributes<HTMLDivElement> {
 const Markdown: React.FC<MarkdownProps> = ({ children, ...props }) => {
   const renderers = {
     // use delete for something cool?
-    delete: ({ children }) => <InlineHover text={children} />,
+    delete: ({ children, node }) => {
+      const textNode = node.children.find((n) => n.type === "text");
+
+      if (!textNode) {
+        return children;
+      }
+
+      return <InlineHover text={textNode.value} />;
+    },
     code: ({ language, children }) => {
       // use code fence blocks to do something very specific
       if (language) {

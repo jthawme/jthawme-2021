@@ -10,7 +10,17 @@ interface InlineHoverProps {
 }
 
 const InlineHover: React.FC<InlineHoverProps> = ({ text }) => {
-  // const data = useStaticQuery(graphql``);
+  const data = useStaticQuery(graphql`
+    query {
+      content: markdownRemark(fileAbsolutePath: { regex: "/meta-images.md/" }) {
+        frontmatter {
+          me {
+            image
+          }
+        }
+      }
+    }
+  `);
 
   const [label, key, url] = useMemo(() => {
     return text.split(":");
@@ -18,15 +28,33 @@ const InlineHover: React.FC<InlineHoverProps> = ({ text }) => {
 
   const { setBgHandlers } = useSiteContext();
 
-  if (url) {
+  const image = useMemo(() => {
+    if (!data.content.frontmatter[key]) {
+      return undefined;
+    }
+
+    const list = data.content.frontmatter[key];
+
+    return list[Math.floor(Math.random() * list.length)].image;
+  }, [data, key]);
+
+  if (!url) {
     return (
-      <span className={styles.hover} {...setBgHandlers}>
+      <span className={styles.hover} {...setBgHandlers(image)}>
         {label}
       </span>
     );
   }
 
-  return <InternalExternalLink url={url}>{label}</InternalExternalLink>;
+  return (
+    <InternalExternalLink
+      {...setBgHandlers(image)}
+      className={styles.hover}
+      url={url}
+    >
+      {label}
+    </InternalExternalLink>
+  );
 };
 
 export { InlineHover };
