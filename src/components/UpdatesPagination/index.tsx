@@ -4,6 +4,7 @@ import classNames from "classnames";
 import styles from "./UpdatesPagination.module.scss";
 import { MicroUpdatePropsData } from "../MicroUpdate";
 import { timer } from "../../utils/promises";
+import { isPast } from "date-fns";
 
 interface UpdatesPaginationProps {
   className?: string;
@@ -24,11 +25,7 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
     }
   }, []);
 
-  const io = useRef(
-    new IntersectionObserver(onEntries, {
-      threshold: 0,
-    }),
-  );
+  const io = useRef<IntersectionObserver>();
 
   const [infinite, setInfinite] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -40,6 +37,9 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
 
   const onRef = useCallback((ref: HTMLDivElement | null) => {
     if (ref) {
+      io.current = new IntersectionObserver(onEntries, {
+        threshold: 0,
+      });
       io.current.observe(ref);
     } else {
       io.current.disconnect();
