@@ -38,6 +38,10 @@ for (let i = 0; i < Math.ceil(updates.length / LIMIT); i++) {
 
 if (!fs.existsSync(dataFolderPath)) {
   fs.mkdirSync(dataFolderPath);
+} else {
+  const files = fs.readdirSync(dataFolderPath);
+
+  files.forEach(name => fs.unlinkSync(path.join(dataFolderPath, name));
 }
 
 chunked.forEach((list, i) =>
