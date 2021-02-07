@@ -24,7 +24,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
   video,
 }) => {
   const inner = useMemo(() => {
-    console.log(image, embed, video);
     if (image && image.src) {
       return <img src={image.src} alt={image.alt || ""} />;
     }

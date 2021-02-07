@@ -1,6 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: "jthawme2021",
+    title: "JT",
+    description: "Portfolio site of Jonny Thaw. Thats me, I'm typing this.",
+    siteUrl: "https://jthaw.me",
   },
   plugins: [
     {
@@ -42,5 +44,76 @@ module.exports = {
       },
     },
     "gatsby-plugin-netlify-cms",
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return updates.edges.map((edge) => {
+                return {
+                  title: edge.node.title,
+                  description: edge.node.rawMarkdownBody,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + edge.node.fields.slug,
+                  custom_elements: [{ "content:encoded": edge.node.html }],
+                };
+              });
+            },
+            query: `
+              {
+                updates: allMarkdownRemark(
+                  filter: { fileAbsolutePath: { regex: "/(updates)/" } }
+                  sort: { fields: frontmatter___date, order: DESC }
+                ) {
+                  edges {
+                    node {
+                      id
+                      fields {
+                        slug
+                      }
+                      rawMarkdownBody
+                      html
+                      frontmatter {
+                        media {
+                          video
+                          image {
+                            alt
+                            src
+                          }
+                        }
+                        title
+                        date
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Your Site's RSS Feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/blog/",
+            // optional configuration to specify external rss feed, such as feedburner
+            link: "https://feeds.feedburner.com/gatsby/blog",
+          },
+        ],
+      },
+    },
   ],
 };

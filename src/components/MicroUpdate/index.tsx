@@ -5,13 +5,19 @@ import classNames from "classnames";
 import styles from "./MicroUpdate.module.scss";
 import { MediaItem, MediaItemData } from "./MediaItem";
 import { Markdown } from "../Markdown";
+import { Link } from "gatsby";
 
-interface MicroUpdateProps {
-  className?: string;
+export interface MicroUpdatePropsData {
   media?: MediaItemData[];
   date: string;
   title: string;
   body?: string;
+  slug: string;
+}
+
+interface MicroUpdateProps extends MicroUpdatePropsData {
+  className?: string;
+  withPermalink?: boolean;
 }
 
 const MicroUpdate: React.FC<MicroUpdateProps> = ({
@@ -20,6 +26,8 @@ const MicroUpdate: React.FC<MicroUpdateProps> = ({
   date,
   title,
   body,
+  slug,
+  withPermalink = false,
 }) => {
   return (
     <section
@@ -35,7 +43,14 @@ const MicroUpdate: React.FC<MicroUpdateProps> = ({
         ))}
       </div>
       <div className={styles.info}>
-        <p className={styles.title}>{title}</p>
+        <p className={styles.title}>
+          {title}{" "}
+          {withPermalink && (
+            <a href={slug} target="_blank" aria-label="Permalink">
+              ↗
+            </a>
+          )}
+        </p>
         <span className={styles.date}>
           <span>{format(new Date(date), "d MMMM")}</span>
           <span>{format(new Date(date), "Y")}</span>

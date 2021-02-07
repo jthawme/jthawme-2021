@@ -1,28 +1,11 @@
 import { graphql, PageProps } from "gatsby";
-import * as React from "react";
+import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { ContentContainer } from "../components/ContentContainer";
 import { MicroUpdate } from "../components/MicroUpdate";
-import { MediaItemData } from "../components/MicroUpdate/MediaItem";
 import { NewsletterSignup } from "../components/NewsletterSignup";
-
-const TEST_TEXT = `
-## This is some test text
-
-and its a chance to see how it may respond to mad things, like for instance a http://google.com link just here
-
-
-or maybe another para _like_ this, not exactly this but **like it**`;
-
-interface MicroUpdateData {
-  id: string;
-  frontmatter: {
-    title: string;
-    date: string;
-    media?: MediaItemData[];
-  };
-  rawMarkdownBody: string;
-}
+import { UpdatesPagination } from "../components/UpdatesPagination";
+import { MicroUpdateData, nodeToData } from "../data/updates";
 
 interface HomeData {
   updates: {
@@ -33,19 +16,25 @@ interface HomeData {
 }
 
 const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
+  const [posts, setPosts] = useState(
+    data.updates.edges.map(({ node }) => ({
+      id: node.id,
+      ...nodeToData(node),
+    })),
+  );
+
   return (
     <>
       <Helmet title="Home" />
       <ContentContainer>
-        {data.updates.edges.map(({ node }) => (
-          <MicroUpdate
-            key={node.id}
-            date={node.frontmatter.date}
-            title={node.frontmatter.title}
-            media={node.frontmatter.media}
-            body={node.rawMarkdownBody}
-          />
-        ))}
+        <section>
+          {posts.map((item) => (
+            <MicroUpdate key={item.id} withPermalink {...item} />
+          ))}
+        </section>
+        <UpdatesPagination
+          onNewPosts={() => setPosts([...posts, ...posts.slice(0, 2)])}
+        />
         <NewsletterSignup />
       </ContentContainer>
     </>
@@ -60,19 +49,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          id
-          rawMarkdownBody
-          frontmatter {
-            media {
-              video
-              image {
-                alt
-                src
-              }
-            }
-            title
-            date
-          }
+          ...MicroUpdateFrag
         }
       }
     }

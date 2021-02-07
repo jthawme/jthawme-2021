@@ -49,6 +49,22 @@
 
   font-size: var(--font-size-normal);
   font-weight: normal;
+
+  a {
+    opacity: 0;
+
+    transition: {
+      duration: 0.25s;
+      property: opacity;
+    }
+  }
+}
+
+.update:hover,
+.update:focus-within {
+  .title a {
+    opacity: 1;
+  }
 }
 
 .date {
