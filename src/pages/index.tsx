@@ -1,5 +1,5 @@
 import { graphql, PageProps } from "gatsby";
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import Helmet from "react-helmet";
 import { ContentContainer } from "../components/ContentContainer";
 import { MicroUpdate } from "../components/MicroUpdate";
@@ -18,10 +18,17 @@ interface HomeData {
 const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
   const [posts, setPosts] = useState(
     data.updates.edges.map(({ node }) => ({
-      id: node.id,
+      id: node.frontmatter.title,
       ...nodeToData(node),
     })),
   );
+
+  const onNewPosts = useCallback((posts) => {
+    setPosts((state) => {
+      console.log([...state, ...posts]);
+      return [...state, ...posts];
+    });
+  }, []);
 
   return (
     <>
@@ -29,12 +36,10 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
       <ContentContainer>
         <section>
           {posts.map((item) => (
-            <MicroUpdate key={item.id} withPermalink {...item} />
+            <MicroUpdate key={item.slug} withPermalink {...item} />
           ))}
         </section>
-        <UpdatesPagination
-          onNewPosts={() => setPosts([...posts, ...posts.slice(0, 2)])}
-        />
+        <UpdatesPagination onNewPosts={onNewPosts} />
         <NewsletterSignup />
       </ContentContainer>
     </>
@@ -46,7 +51,7 @@ export const query = graphql`
     updates: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(updates)/" } }
       sort: { fields: frontmatter___date, order: DESC }
-      limit: 10
+      limit: 2
     ) {
       edges {
         node {

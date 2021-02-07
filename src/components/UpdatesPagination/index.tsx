@@ -26,10 +26,12 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
   }, []);
 
   const io = useRef<IntersectionObserver>();
+  const page = useRef<number>(1);
 
   const [infinite, setInfinite] = useState(false);
   const [loading, setLoading] = useState(false);
   const [visible, setVisible] = useState(false);
+  const [finished, setFinished] = useState(false);
 
   const toggleInfiniteScroll = useCallback(() => {
     setInfinite((state) => !state);
@@ -49,15 +51,21 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
   const loadMore = useCallback(() => {
     if (!loading) {
       setLoading(true);
-      timer(2000)
-        // fetch("/.netlify/functions/more")
-        //   .then((resp) => resp.json())
-        .then((data) => {
-          onNewPosts([]);
+      fetch(`/.netlify/functions/more?page=${page.current + 1}`)
+        .then((resp) => resp.json())
+        .then((obj) => {
+          if (obj.data && obj.data.length) {
+            onNewPosts(obj.data);
 
-          setTimeout(() => {
+            setTimeout(() => {
+              page.current += 1;
+              setLoading(false);
+            }, loadDebounce);
+          } else {
             setLoading(false);
-          }, loadDebounce);
+            setInfinite(false);
+            setFinished(true);
+          }
         });
     }
   }, [loading, loadDebounce]);
@@ -84,9 +92,11 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
 
   return (
     <section ref={onRef} className={classNames(styles.pagination, className)}>
-      {loading ? (
-        <span>loading more posts...</span>
-      ) : (
+      {finished && <span className={styles.help}>End of the road</span>}
+
+      {loading && <span>loading more posts...</span>}
+
+      {!loading && !finished && (
         <div className={styles.actions}>
           <button onClick={loadMore}>Load more</button>
           <span>or</span>
