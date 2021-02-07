@@ -8,7 +8,7 @@ const dataFolderPath = path.join(__dirname, "..", "static", "data");
 const getUpdateFile = (name) =>
   path.join(__dirname, "..", "content", "updates", name, "index.md");
 
-const LIMIT = 2;
+const LIMIT = 10;
 
 const updates = fs
   .readdirSync(updatesFolderPath)

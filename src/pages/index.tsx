@@ -24,10 +24,7 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
   );
 
   const onNewPosts = useCallback((posts) => {
-    setPosts((state) => {
-      console.log([...state, ...posts]);
-      return [...state, ...posts];
-    });
+    setPosts((state) => [...state, ...posts]);
   }, []);
 
   return (
@@ -51,7 +48,7 @@ export const query = graphql`
     updates: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(updates)/" } }
       sort: { fields: frontmatter___date, order: DESC }
-      limit: 2
+      limit: 10
     ) {
       edges {
         node {

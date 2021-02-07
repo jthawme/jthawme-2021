@@ -5,7 +5,9 @@ function extractNetlifySiteFromContext(context) {
     return "http://localhost:8888";
   }
   const data = context.clientContext.custom.netlify;
-  return JSON.parse(Buffer.from(data, "base64").toString("utf-8"));
+  const decoded = JSON.parse(Buffer.from(data, "base64").toString("utf-8"));
+
+  return decoded.site_url;
 }
 
 exports.handler = async function (event, context) {
