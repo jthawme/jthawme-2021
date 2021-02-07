@@ -9,5 +9,4 @@ Convert colours into a list of stepped colours and then step through them with *
 
 Perfect for doing something like angle = colour
 
-Javascript/typescript code\
-<https://gist.github.com/jthawme/76a55d00bb9552b6c8ba619492e51410>
+[Javascript/typescript code](https://gist.github.com/jthawme/76a55d00bb9552b6c8ba619492e51410)
