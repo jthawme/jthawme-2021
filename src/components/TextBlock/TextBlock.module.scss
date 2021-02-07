@@ -1,9 +1,7 @@
+@import "common";
+
 .wrapper {
-  display: grid;
-
-  grid-template-columns: repeat(12, 1fr);
-
-  gap: var(--size-gap);
+  @include stdgrid;
 }
 
 .block {

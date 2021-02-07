@@ -3,13 +3,14 @@ import classNames from "classnames";
 
 import styles from "./ListBlock.module.scss";
 import { Markdown } from "../Markdown";
+import { InternalExternalLink } from "../InternalExternalLink";
+import { useSiteContext } from "../SiteContext";
 
-type ListItem =
-  | string
-  | {
-      to: string;
-      label: string;
-    };
+export type ListItem = {
+  url?: string;
+  label: string;
+  image?: string;
+};
 
 interface ListBlockProps extends React.HTMLAttributes<HTMLDivElement> {
   items: ListItem[];
@@ -17,22 +18,25 @@ interface ListBlockProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const ListBlock: React.FC<ListBlockProps> = ({ className, items, body }) => {
+  const { setBgHandlers } = useSiteContext();
+
   return (
     <div className={classNames(styles.wrapper, className)}>
       <ul className={styles.list}>
         {items.map((item, idx) => (
           <li key={idx}>
-            {typeof item === "string" ? (
-              <span className={styles.listItem}>{item}</span>
+            {!item.url ? (
+              <span {...setBgHandlers(item.image)} className={styles.listItem}>
+                {item.label}
+              </span>
             ) : (
-              <a
+              <InternalExternalLink
+                {...setBgHandlers(item.image)}
                 className={styles.listItem}
-                href={item.to}
-                rel="noreferrer noopener"
-                target="_blank"
+                url={item.url}
               >
                 {item.label}
-              </a>
+              </InternalExternalLink>
             )}
           </li>
         ))}

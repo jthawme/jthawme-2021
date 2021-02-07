@@ -1,14 +1,20 @@
 import React from "react";
+import smoothscroll from "smoothscroll-polyfill";
 import { Layout } from "./src/components/Layout";
 
 export const wrapPageElement = ({ element, props }) => (
   <Layout {...props}>{element}</Layout>
 );
 
+export const onClientEntry = () => {
+  smoothscroll.polyfill();
+};
+
 export const shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
   if (routerProps.location.action === "PUSH") {
-    // new place
-    window.scrollTo({
+    console.log(window.scroll);
+
+    window.scroll({
       x: 0,
       y: 0,
       behavior: "smooth",
@@ -17,7 +23,7 @@ export const shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
     const savedPosition = getSavedScrollPosition(routerProps.location);
     setTimeout(
       () =>
-        window.scrollTo({
+        window.scroll({
           ...savedPosition,
           behavior: "smooth",
         }),

@@ -1,0 +1,17 @@
+@import "common";
+
+.item {
+  grid-column: var(--mobile-span, 1 / span 4);
+
+  @include tablet {
+    grid-column: var(--tablet-span, 1 / span 6);
+  }
+
+  @include desktop {
+    grid-column: var(--desktop-span, 1 / span 12);
+  }
+}
+
+.text {
+  font-size: var(--font-size-normal);
+}

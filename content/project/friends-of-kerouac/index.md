@@ -16,9 +16,12 @@ content:
     tablet: 1 / span 3
   - image:
       src: /images/uploads/mobile.jpg
+    desktop: 9 / span 4
+    tablet: 5 / span 2
 ---
+
 The site acts as a visual compendium to the characters and subsequent people that made up the Beat Generation in Kerouac's books and in real life.
 
-It removes to facade of the psuedonym's for each individual book while also acting as a tool to piece together Kerouac's group of friends over the years of his works.
+It removes the facade of the psuedonym's for each individual book while also acting as a tool to piece together Kerouac's group of friends over the years of his works.
 
 [friendsofkerouac.com](https://friendsofkerouac.com)

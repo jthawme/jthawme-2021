@@ -8,6 +8,73 @@ media_folder: /static/images
 public_folder: /images
 
 collections:
+  - label: "Meta"
+    name: "meta"
+    media_folder: "/static/images/meta"
+    public_folder: "/images/meta"
+    editor:
+      preview: false
+    files:
+      - label: "Image Lists"
+        name: "meta-images"
+        file: "/content/meta-images.md"
+        fields:
+          - label: Me
+            name: me
+            widget: list
+            fields:
+              - { label: Image, name: image, widget: image }
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Projects Page"
+        name: "project"
+        file: "/content/projects.md"
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            fields:
+              - label: Link
+                name: link
+                widget: relation
+                collection: project
+                value_field: title
+                search_fields: ["title"]
+
+      - label: "About Page"
+        name: "about"
+        file: "/content/about.md"
+        fields:
+          - label: Body
+            name: body
+            widget: markdown
+
+      - label: "Professional Page"
+        name: "professional"
+        file: "/content/professional.md"
+        fields:
+          - label: Body
+            name: body
+            widget: markdown
+
+          - label: Companies
+            name: companies
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+
+          - label: Mentions
+            name: mentions
+            widget: list
+            fields:
+              - { label: Label, name: label, widget: string }
+              - { label: URL, name: url, widget: string, required: false }
+              - { label: Image, name: image, widget: image, required: false }
+
   - name: "updates"
     label: "Updates"
     folder: "content/updates"
@@ -48,7 +115,7 @@ collections:
                 required: false
               - label: Alt Text
                 name: alt
-                widget: text
+                widget: string
                 required: false
 
           - label: Embed
@@ -59,4 +126,80 @@ collections:
           - label: "Video"
             name: "video"
             widget: "file"
+            pattern: ["(.mp4)", "Must be a .mp4"]
+            required: false
+
+  - name: "project"
+    label: "Projects"
+    folder: "content/project"
+    create: true
+    slug: "{{slug}}"
+    media_folder: "/static/images/uploads"
+    public_folder: "/images/uploads"
+    path: "{{slug}}/index"
+    editor:
+      preview: false
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+
+      - label: "Main image"
+        name: "main_image"
+        widget: "image"
+
+      - label: "Body"
+        name: "body"
+        widget: "markdown"
+
+      - label: "Content"
+        name: "content"
+        widget: "list"
+        summary: "{{fields.image}}"
+        fields:
+          - label: Image
+            name: image
+            widget: object
+            required: false
+            fields:
+              - label: File
+                name: src
+                widget: image
+                required: false
+              - label: Alt Text
+                name: alt
+                widget: string
+                required: false
+
+          - label: Embed
+            name: embed
+            widget: text
+            required: false
+
+          - label: "Video"
+            name: "video"
+            widget: "file"
+            required: false
+
+          - label: "Text"
+            name: "text"
+            widget: "markdown"
+            required: false
+
+          - label: "Desktop column"
+            name: "desktop"
+            widget: "string"
+            hint: "CSS Grid column / 12"
+            required: false
+
+          - label: "Tablet column"
+            name: "tablet"
+            widget: "string"
+            hint: "CSS Grid column / 6"
+            required: false
+
+          - label: "Base column"
+            name: "mobile"
+            widget: "string"
+            hint: "CSS Grid column / 4"
             required: false

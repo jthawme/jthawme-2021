@@ -1,11 +1,7 @@
 import React from "react";
 import { graphql, PageProps } from "gatsby";
-import Helmet from "react-helmet";
 import { ContentContainer } from "../components/ContentContainer";
 
-import styles from "../styles/pages/Professional.module.scss";
-import { TextBlock } from "../components/TextBlock";
-import { ListBlock } from "../components/ListBlock";
 import { MicroUpdate } from "../components/MicroUpdate";
 import { MicroUpdateData, nodeToData } from "../data/updates";
 import { SEO } from "../components/SEO";

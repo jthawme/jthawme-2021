@@ -1,0 +1,10 @@
+@import "common";
+
+.title {
+  font-size: var(--font-size-xx-large);
+  font-weight: normal;
+}
+
+.blocks {
+  @include stdgrid;
+}

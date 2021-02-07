@@ -1,5 +1,7 @@
+@import "common";
+
 .wrapper {
-  margin-bottom: var(--size-gap);
+  padding-bottom: var(--size-gap);
 }
 
 .form {
@@ -12,10 +14,7 @@
   grid-column: 3 / span 10;
 
   &-wrapper {
-    display: grid;
-
-    grid-template-columns: repeat(12, 1fr);
-    gap: var(--size-gap);
+    @include stdgrid;
   }
 
   span {

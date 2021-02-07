@@ -37,3 +37,17 @@
 @function vh($quantity) {
   @return calc(var(--vh, 1vh) * #{$quantity});
 }
+
+@mixin stdgrid() {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--size-gap);
+
+  @include tablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

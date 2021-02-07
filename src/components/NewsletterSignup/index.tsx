@@ -7,6 +7,7 @@ import { TextBlock } from "../TextBlock";
 interface NewsLetterSignupProps {
   className?: string;
   children?: string;
+  noBorder?: boolean;
 }
 
 const DEFAULT_TEXT = `If you are interested in this work, sign up to my _occasional newsletter_ to get aggregated updates straight to your inbox`;
@@ -14,9 +15,16 @@ const DEFAULT_TEXT = `If you are interested in this work, sign up to my _occasio
 const NewsletterSignup: React.FC<NewsLetterSignupProps> = ({
   className,
   children = DEFAULT_TEXT,
+  noBorder = false,
 }) => {
   return (
-    <section className={classNames(styles.wrapper, className)}>
+    <section
+      className={classNames(
+        styles.wrapper,
+        { [styles.border]: !noBorder },
+        className,
+      )}
+    >
       <TextBlock>{children}</TextBlock>
       <div className={styles.formWrapper}>
         <form className={styles.form}>

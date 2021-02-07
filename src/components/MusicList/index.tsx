@@ -3,22 +3,24 @@ import classNames from "classnames";
 import format from "date-fns/format";
 
 import styles from "./MusicList.module.scss";
+import { useSiteContext } from "../SiteContext";
 
 interface MusicListProps {
   limit?: number;
   className?: string;
 }
 
-type Album = {
+export type Album = {
   id: string;
   artist: string;
   album: string;
   artwork: string;
+  name: string;
   date: Date;
 };
 
 const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
-  const [tracks, setTracks] = useState<Album[]>([]);
+  const { tracks, setTracks, setBgHandlers } = useSiteContext();
 
   useEffect(() => {
     const controller = new AbortController();
@@ -39,8 +41,8 @@ const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
             id: track.mbid,
             artist: track.artist["#text"],
             album: track.album["#text"],
-            artwork: (track.image.find((img) => img.size === "large") ||
-              track.image.pop())["#text"],
+            name: track.name,
+            artwork: track.image.pop()["#text"],
             date: new Date(track.date["#text"]),
           };
         }),
@@ -63,8 +65,13 @@ const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
     <div className={classNames(styles.list, className)}>
       {tracks.length === 0 && <span>Asking señor last.fm for tracks...</span>}
       {tracks.map((track) => (
-        <div key={track.id} className={styles.row}>
-          <div className={styles.rowTitle}>{track.artist}</div>
+        <div
+          key={track.id}
+          className={styles.row}
+          {...setBgHandlers(track.artwork)}
+        >
+          <div className={styles.rowTitle}>{track.name}</div>
+          <div className={styles.rowSubtitle}>{track.artist}</div>
           <div className={styles.rowSubtitle}>{track.album}</div>
           <div className={styles.rowDate}>
             {format(track.date, "d LLL kk:mm")}

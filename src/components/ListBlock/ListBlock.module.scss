@@ -1,8 +1,7 @@
-.wrapper {
-  display: grid;
+@import "common";
 
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--size-gap);
+.wrapper {
+  @include stdgrid;
 
   min-height: 0;
 

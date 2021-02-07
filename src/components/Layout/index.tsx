@@ -1,11 +1,14 @@
 import { PageProps } from "gatsby";
-import React from "react";
+import React, { useEffect } from "react";
 
 import "../../styles/globals.scss";
 import { Header } from "../Header";
 import { SiteContainer } from "../SiteContext";
 import { Footer } from "../Footer";
 import { SEO } from "../SEO";
+import { BgImage } from "../BgImage";
+
+import styles from "./Layout.module.scss";
 
 const Layout: React.FC<PageProps> = ({ children, location }) => {
   return (
@@ -19,7 +22,9 @@ const Layout: React.FC<PageProps> = ({ children, location }) => {
         ></script>
       </SEO>
       <Header />
-      <main>{children}</main>
+
+      <BgImage className={styles.bg} />
+      <main className={styles.main}>{children}</main>
 
       <Footer />
     </SiteContainer>

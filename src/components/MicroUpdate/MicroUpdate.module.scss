@@ -1,8 +1,7 @@
-.update {
-  display: grid;
+@import "common";
 
-  grid-template-columns: repeat(12, 1fr);
-  gap: var(--size-gap);
+.update {
+  @include stdgrid;
 
   margin-bottom: var(--size-block-gap);
 

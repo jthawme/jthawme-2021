@@ -17,7 +17,6 @@ const UpdatesPagination: React.FC<UpdatesPaginationProps> = ({
   loadDebounce = 1000,
 }) => {
   const onEntries = useCallback((entries: IntersectionObserverEntry[]) => {
-    console.log(entries.filter((e) => e.isIntersecting).length, entries.length);
     if (entries.filter((e) => e.isIntersecting).length === entries.length) {
       setVisible(true);
     } else {

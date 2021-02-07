@@ -26,10 +26,10 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "updates",
-        path: "./content/updates/",
+        name: "markdown",
+        path: "./content/",
       },
-      __key: "updates",
+      __key: "markdown",
     },
     {
       resolve: `gatsby-plugin-manifest`,

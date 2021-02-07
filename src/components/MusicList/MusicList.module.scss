@@ -1,16 +1,19 @@
+@import "common";
+
 .list {
   margin: var(--size-unit-20) 0;
 }
 
 .row {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
+  @include stdgrid;
 
   align-items: flex-start;
 
-  gap: var(--size-gap);
-
   padding: var(--size-unit-2) 0;
+
+  font-size: var(--font-size-small);
+
+  cursor: default;
 
   img {
     max-width: 100%;
@@ -22,17 +25,12 @@
     display: none;
   }
 
-  &-title,
-  &-subtitle {
-    font-size: var(--font-size-medium);
-  }
-
   &-title {
     grid-column: span 4;
   }
 
   &-subtitle {
-    grid-column: span 6;
+    grid-column: span 3;
   }
 
   &-date {

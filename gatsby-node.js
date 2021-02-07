@@ -6,11 +6,22 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode });
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `/updates${value}`,
-    });
+
+    if (node.fileAbsolutePath.includes("/content/project/")) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      });
+    }
+
+    if (node.fileAbsolutePath.includes("/content/updates/")) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value,
+      });
+    }
   }
 };
 
@@ -22,7 +33,17 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       updates: allMarkdownRemark(
         filter: { fileAbsolutePath: { regex: "/(updates)/" } }
-        sort: { fields: frontmatter___date, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+      projects: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/(/project/)/" } }
       ) {
         edges {
           node {
@@ -39,6 +60,18 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve(`./src/templates/update.tsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.fields.slug,
+      },
+    });
+  });
+
+  result.data.projects.edges.forEach(({ node }) => {
+    createPage({
+      path: node.fields.slug,
+      component: path.resolve(`./src/templates/project.tsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
