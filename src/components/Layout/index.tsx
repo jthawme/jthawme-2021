@@ -10,7 +10,14 @@ import { Footer } from "../Footer";
 const Layout: React.FC<PageProps> = ({ children, location }) => {
   return (
     <SiteContainer location={location}>
-      <Helmet titleTemplate="%s — JT" />
+      <Helmet titleTemplate="%s — JT">
+        <script
+          async
+          defer
+          data-domain="jthaw.me"
+          src="https://plausible.io/js/plausible.js"
+        ></script>
+      </Helmet>
       <Header />
       <main>{children}</main>
 

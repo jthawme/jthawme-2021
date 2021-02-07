@@ -4,6 +4,7 @@ import Helmet from "react-helmet";
 import { ContentContainer } from "../components/ContentContainer";
 import { MicroUpdate } from "../components/MicroUpdate";
 import { MediaItemData } from "../components/MicroUpdate/MediaItem";
+import { NewsletterSignup } from "../components/NewsletterSignup";
 
 const TEST_TEXT = `
 ## This is some test text
@@ -19,8 +20,8 @@ interface MicroUpdateData {
     title: string;
     date: string;
     media?: MediaItemData[];
-    body?: string;
   };
+  rawMarkdownBody: string;
 }
 
 interface HomeData {
@@ -38,12 +39,14 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
       <ContentContainer>
         {data.updates.edges.map(({ node }) => (
           <MicroUpdate
+            key={node.id}
             date={node.frontmatter.date}
             title={node.frontmatter.title}
             media={node.frontmatter.media}
-            body={node.frontmatter.body}
+            body={node.rawMarkdownBody}
           />
         ))}
+        <NewsletterSignup />
       </ContentContainer>
     </>
   );
@@ -53,12 +56,15 @@ export const query = graphql`
   query HomePageQuery {
     updates: allMarkdownRemark(
       filter: { fileAbsolutePath: { regex: "/(updates)/" } }
+      sort: { fields: frontmatter___date, order: DESC }
     ) {
       edges {
         node {
           id
+          rawMarkdownBody
           frontmatter {
             media {
+              video
               image {
                 alt
                 src
@@ -66,7 +72,6 @@ export const query = graphql`
             }
             title
             date
-            # body
           }
         }
       }

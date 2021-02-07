@@ -24,7 +24,8 @@ const MediaItem: React.FC<MediaItemProps> = ({
   video,
 }) => {
   const inner = useMemo(() => {
-    if (image) {
+    console.log(image, embed, video);
+    if (image && image.src) {
       return <img src={image.src} alt={image.alt || ""} />;
     }
 
@@ -37,7 +38,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     }
 
     return null;
-  }, [image, embed]);
+  }, [image, embed, video]);
 
   return <div className={classNames(styles.item, className)}>{inner}</div>;
 };

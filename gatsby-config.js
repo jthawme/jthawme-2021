@@ -3,7 +3,6 @@ module.exports = {
     title: "jthawme2021",
   },
   plugins: [
-    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-plugin-sass",
       options: {
@@ -42,5 +41,6 @@ module.exports = {
         icon: `src/images/logo.png`,
       },
     },
+    "gatsby-plugin-netlify-cms",
   ],
 };
