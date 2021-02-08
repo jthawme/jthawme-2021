@@ -41,7 +41,7 @@ if (!fs.existsSync(dataFolderPath)) {
 } else {
   const files = fs.readdirSync(dataFolderPath);
 
-  files.forEach(name => fs.unlinkSync(path.join(dataFolderPath, name));
+  files.forEach((name) => fs.unlinkSync(path.join(dataFolderPath, name)));
 }
 
 chunked.forEach((list, i) =>
