@@ -2,5 +2,6 @@
 title: Pause for horoscope today
 date: 2021-02-07T15:52:31.587Z
 media:
-  - video: /images/uploads/horoscope.mp4
+  - video:
+      src: /images/uploads/horoscope.mp4
 ---

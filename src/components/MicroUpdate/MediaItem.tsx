@@ -10,7 +10,10 @@ export interface MediaItemData {
     alt?: string;
   };
   embed?: string;
-  video?: string;
+  video?: {
+    src?: string;
+    image?: string;
+  };
 }
 
 interface MediaItemProps extends MediaItemData {
@@ -33,7 +36,7 @@ const MediaItem: React.FC<MediaItemProps> = ({
     }
 
     if (video) {
-      return <Embed src={video} />;
+      return <Embed src={video.src} />;
     }
 
     return null;

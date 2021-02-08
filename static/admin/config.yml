@@ -125,11 +125,20 @@ collections:
             widget: text
             required: false
 
-          - label: "Video"
-            name: "video"
-            widget: "file"
-            pattern: ["(.mp4)", "Must be a .mp4"]
+          - label: Video
+            name: video
+            widget: object
             required: false
+            fields:
+              - label: File
+                name: src
+                widget: file
+                required: false
+                pattern: ["(.mp4)", "Must be a .mp4"]
+              - label: Image
+                name: image
+                widget: image
+                required: false
 
   - name: "project"
     label: "Projects"
@@ -178,10 +187,20 @@ collections:
             widget: text
             required: false
 
-          - label: "Video"
-            name: "video"
-            widget: "file"
+          - label: Video
+            name: video
+            widget: object
             required: false
+            fields:
+              - label: File
+                name: src
+                widget: file
+                required: false
+                pattern: ["(.mp4)", "Must be a .mp4"]
+              - label: Image
+                name: image
+                widget: image
+                required: false
 
           - label: "Text"
             name: "text"

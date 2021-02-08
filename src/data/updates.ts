@@ -11,8 +11,11 @@ export const query = graphql`
     }
     frontmatter {
       media {
-        video
         embed
+        video {
+          src
+          image
+        }
         image {
           alt
           src
