@@ -18,6 +18,22 @@ content:
       src: /images/uploads/mobile.jpg
     desktop: 9 / span 4
     tablet: 5 / span 2
+  - image:
+      src: /images/uploads/kerouac2.jpg
+    desktop: 1 / span 10
+    tablet: 1 / span 4
+  - image:
+      src: /images/uploads/kerouac3.jpg
+    desktop: 6 / span 5
+    tablet: 4 / span 3
+  - image:
+      src: /images/uploads/kerouac4.jpg
+    desktop: 3 / span 10
+    tablet: 1 / span 5
+  - image:
+      src: /images/uploads/kerouac5.jpg
+    desktop: 1 / span 8
+    tablet: 2 / span 5
 ---
 
 The site acts as a visual compendium to the characters and subsequent people that made up the Beat Generation in Kerouac's books and in real life.
