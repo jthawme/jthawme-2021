@@ -3,10 +3,11 @@ title: Drum Generates
 main_image: /images/uploads/lights.jpg
 content:
   - image:
-      src: ../assets/projects/drum-generates/half-time.jpg
+      src: /images/uploads/half-time.jpg
       alt: Half time ballad poster
     desktop: 1 / span 7
-  - text: I hooked up electronic drums via MIDI to a set of LEDs and made it so that
+  - text:
+      I hooked up electronic drums via MIDI to a set of LEDs and made it so that
       each LED had a corresponding drum hit. I then attached the set of LEDs to
       a motor on the end of a stick, so that then when the motor turned (it did
       a complete rotation in about 20 seconds) and a camera pointing towards it
@@ -14,19 +15,19 @@ content:
       the bars that were played by the drummer.
     desktop: 9 / span 4
   - image:
-      src: ../assets/projects/drum-generates/ruler.jpg
+      src: /images/uploads/ruler.jpg
       alt: Top view of the mechanism
     desktop: 5 / span 6
   - image:
-      src: ../assets/projects/drum-generates/office.jpg
+      src: /images/uploads/office.jpg
       alt: My old office
     desktop: 1 / span 4
   - image:
-      src: ../assets/projects/drum-generates/setup.jpg
+      src: /images/uploads/setup.jpg
       alt: Setting up the drum kit
     desktop: 7 / span 6
   - image:
-      src: ../assets/projects/drum-generates/lights.jpg
+      src: /images/uploads/lights.jpg
       alt: A small light blend of the project in progress
     desktop: 2 / span 10
   - type: text
@@ -39,11 +40,11 @@ content:
       You can see all the posters in more detail here <http://jthaw.me/drums/>
     desktop: 1 / span 6
   - image:
-      src: ../assets/projects/drum-generates/posters.jpg
+      src: /images/uploads/posters.jpg
       alt: Posters hanging in a room
     desktop: 9 / span 4
   - image:
-      src: ../assets/projects/drum-generates/posters2.jpg
+      src: /images/uploads/posters2.jpg
       alt: A view showing you being able to see all posters at a glance
     desktop: 1 / span 10
 ---
