@@ -1,6 +1,13 @@
+@import "common";
+
 .pagination {
-  margin-top: var(--size-gap);
+  margin-top: calc(var(--size-gap) * 2);
   margin-bottom: var(--size-block-gap);
+
+  @include tablet {
+    margin-top: var(--size-gap);
+    margin-bottom: var(--size-block-gap);
+  }
 }
 
 .help {
@@ -21,7 +28,7 @@
 .actions {
   display: flex;
 
-  align-items: center;
+  flex-direction: column;
 
   font-size: var(--font-size-large);
   line-height: 1.4;
@@ -51,6 +58,15 @@
   }
 
   span {
-    margin: 0 0.6ch;
+    margin: 0;
+  }
+
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+
+    span {
+      margin: 0 0.6ch;
+    }
   }
 }

@@ -41,6 +41,7 @@ const MicroUpdate: React.FC<MicroUpdateProps> = ({
         styles.update,
         {
           [styles.text]: !media || media.length === 0,
+          [styles.withBody]: body && body.split(" ").length > 5,
           [styles.withNumber]: !!number,
           [styles.view]: !!inView,
         },

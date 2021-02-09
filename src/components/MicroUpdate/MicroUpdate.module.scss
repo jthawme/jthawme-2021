@@ -4,13 +4,17 @@
   @include stdgrid;
 
   align-items: flex-start;
-  margin-bottom: var(--size-block-gap);
+  margin-bottom: calc(var(--size-block-gap) * 0.75);
 
   opacity: 0;
 
   transition: {
     duration: 0.5s;
     property: opacity;
+  }
+
+  @include tablet {
+    margin-bottom: var(--size-block-gap);
   }
 
   // > * {
@@ -72,9 +76,17 @@
   }
 
   @include desktop {
-    grid-column: 1 / span 7;
+    grid-column: 1 / span 9;
+
+    .with-body & {
+      grid-column: 1 / span 7;
+    }
 
     .with-number & {
+      grid-column: 2 / span 8;
+    }
+
+    .with-number.with-body & {
       grid-column: 2 / span 6;
     }
   }
@@ -121,7 +133,11 @@
 
     top: var(--size-unit-10);
 
-    grid-column: 8 / span 5;
+    grid-column: 10 / span 3;
+
+    .with-body & {
+      grid-column: 8 / span 5;
+    }
 
     .text & {
       grid-column: 6 / span 7;

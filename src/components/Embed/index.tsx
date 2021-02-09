@@ -3,11 +3,13 @@ import classNames from "classnames";
 import { VideoPlayer } from "../VideoPlayer";
 
 import styles from "./Embed.module.scss";
+import { useInView } from "react-intersection-observer";
 
 enum EmbedType {
   CodeSandbox = "codesandbox",
   Video = "video",
   Youtube = "youtube",
+  Iframe = "iframe",
 }
 
 const CODE_SANDBOX_REGEX = /codesandbox.io\/s\/([a-z0-9]+)/;
@@ -32,6 +34,13 @@ type VideoEmbed = {
   };
 };
 
+type IframeEmbed = {
+  type: EmbedType.Iframe;
+  data: {
+    src: string;
+  };
+};
+
 type YoutubeEmbed = {
   type: EmbedType.Youtube;
   data: {
@@ -39,9 +48,11 @@ type YoutubeEmbed = {
   };
 };
 
-type TypeParams = CodeSandboxEmbed | VideoEmbed | YoutubeEmbed;
+type TypeParams = CodeSandboxEmbed | VideoEmbed | YoutubeEmbed | IframeEmbed;
 
 const Embed: React.FC<EmbedProps> = ({ src, className }) => {
+  const [ref, inView] = useInView();
+
   const params = useMemo<TypeParams | false>(() => {
     if (src.includes(".mp4")) {
       return {
@@ -72,13 +83,39 @@ const Embed: React.FC<EmbedProps> = ({ src, className }) => {
         },
       };
     }
-    return false;
+    return {
+      type: EmbedType.Iframe,
+      data: {
+        src,
+      },
+    };
   }, [src]);
 
   const cls = classNames(className);
 
   if (!params) {
     return null;
+  }
+
+  if (EmbedType.Iframe === params.type) {
+    return (
+      <div ref={ref} className={styles.embedWrapper}>
+        {inView && (
+          <iframe
+            className={cls}
+            src={params.data.src}
+            style={{
+              width: "100%",
+              height: "100%",
+              border: 0,
+              overflow: "hidden",
+            }}
+            allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+            sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+          ></iframe>
+        )}
+      </div>
+    );
   }
 
   if (EmbedType.CodeSandbox === params.type) {

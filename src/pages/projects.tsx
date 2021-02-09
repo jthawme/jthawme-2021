@@ -48,7 +48,7 @@ const ProjectsPage: React.FC<PageProps<ProjectsPageProps>> = ({ data }) => {
 
   return (
     <>
-      <Helmet title="About" />
+      <Helmet title="Projects" />
       <ContentContainer>
         <ListBlock items={projectList} body="Various projects" />
       </ContentContainer>

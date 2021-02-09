@@ -46,16 +46,6 @@ const MediaItem: React.FC<MediaItemProps> = ({
           }
         />
       );
-      // return (
-      //   <Img
-      //     fluid={
-      //       image.src.childImageSharp
-      //         ? image.src.childImageSharp.fluid
-      //         : image.src
-      //     }
-      //     alt={image.alt || ""}
-      //   />
-      // );
     }
 
     if (embed) {

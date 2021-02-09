@@ -16,6 +16,8 @@ interface SiteContextData {
   setTracks: (tracks: Album[]) => void;
   bgImage?: string;
   setBgImage: (img: string) => void;
+  menuOpen: boolean;
+  setMenuOpen: (open: boolean) => void;
   setBgHandlers: (
     img: string,
   ) => {
@@ -26,9 +28,11 @@ interface SiteContextData {
 
 const SiteContext = createContext<SiteContextData>({
   dark: false,
+  menuOpen: false,
   tracks: [],
   setTracks: () => false,
   setBgImage: () => false,
+  setMenuOpen: () => false,
   setBgHandlers: () => ({
     onMouseEnter: () => false,
     onMouseLeave: () => false,
@@ -40,12 +44,14 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
   location,
 }) => {
   const [dark, setDark] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const [tracks, setTracks] = useState<Album[]>([]);
   const [bgImage, setBgImage] = useState<string | undefined>();
 
   useEffect(() => {
     setDark(location.pathname === "/professional");
     setBgImage(undefined);
+    setMenuOpen(false);
   }, [location.pathname]);
 
   // useEffect(() => {
@@ -65,7 +71,16 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
 
   return (
     <SiteContext.Provider
-      value={{ dark, tracks, setTracks, bgImage, setBgImage, setBgHandlers }}
+      value={{
+        dark,
+        tracks,
+        setTracks,
+        bgImage,
+        setBgImage,
+        setBgHandlers,
+        menuOpen,
+        setMenuOpen,
+      }}
     >
       {children}
     </SiteContext.Provider>

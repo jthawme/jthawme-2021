@@ -43,6 +43,7 @@ content:
     tablet: 5 / span 2
     mobile: 3 / span 2
 ---
+
 A community created site that plots all the local businesses that are innovating and surviving during lockdown due to Covid-19.
 
 A crazy time in everyones life, but one that everyone is just trying to get by with. This site was built with my friend [Alex Thurman](http://www.alex-thurman.com/) and it was put together during the hopelessness of the situation, wanting to contribute something from our skill set.

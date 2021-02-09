@@ -7,7 +7,7 @@
 .block {
   grid-column: 1 / span 4;
 
-  font-size: var(--font-size-large);
+  font-size: var(--font-size-normal);
 
   em {
     font-style: normal;
@@ -15,7 +15,13 @@
     text-decoration-color: var(--color-accent);
   }
 
+  @include large-mobile {
+    font-size: var(--font-size-medium);
+  }
+
   @include tablet {
+    font-size: var(--font-size-large);
+
     grid-column: 3 / span 10;
   }
 }

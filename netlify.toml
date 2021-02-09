@@ -1,2 +1,17 @@
 [build]
   functions = "api"
+
+[[redirects]]
+  from = "/contact"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/work"
+  to = "/projects"
+  status = 301
+
+[[redirects]]
+  from = "/things"
+  to = "/"
+  status = 301
