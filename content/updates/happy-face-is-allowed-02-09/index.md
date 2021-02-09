@@ -5,4 +5,4 @@ media:
   - video:
       src: /images/uploads/friendly.mp4
 ---
-Become a friendly face, by clicking [here](https://sketches.jthaw.dev/03)
+Become a friendly face, by clicking [here](https://sketches.jthaw.dev/036/)
