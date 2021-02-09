@@ -1,13 +1,17 @@
 ---
 title: Drum Generates
-main_image: ../assets/projects/drum-generates/lights.jpg
+main_image: /images/uploads/lights.jpg
 content:
   - image:
       src: ../assets/projects/drum-generates/half-time.jpg
       alt: Half time ballad poster
     desktop: 1 / span 7
-  - text: >-
-      I hooked up electronic drums via MIDI to a set of LEDs and made it so that each LED had a corresponding drum hit. I then attached the set of LEDs to a motor on the end of a stick, so that then when the motor turned (it did a complete rotation in about 20 seconds) and a camera pointing towards it took a 20 second exposure, it basically captured a digital footprint of the bars that were played by the drummer.
+  - text: I hooked up electronic drums via MIDI to a set of LEDs and made it so that
+      each LED had a corresponding drum hit. I then attached the set of LEDs to
+      a motor on the end of a stick, so that then when the motor turned (it did
+      a complete rotation in about 20 seconds) and a camera pointing towards it
+      took a 20 second exposure, it basically captured a digital footprint of
+      the bars that were played by the drummer.
     desktop: 9 / span 4
   - image:
       src: ../assets/projects/drum-generates/ruler.jpg
@@ -26,8 +30,11 @@ content:
       alt: A small light blend of the project in progress
     desktop: 2 / span 10
   - type: text
-    text: |
-      I then set up the posters I produced altogether in a room, in an arrangement where you could see multiple posters at once, so that you have the ability to see the differences in one glance.
+    text: >
+      I then set up the posters I produced altogether in a room, in an
+      arrangement where you could see multiple posters at once, so that you have
+      the ability to see the differences in one glance.
+
 
       You can see all the posters in more detail here <http://jthaw.me/drums/>
     desktop: 1 / span 6
