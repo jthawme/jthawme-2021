@@ -1,6 +1,7 @@
 import React from "react";
 import format from "date-fns/format";
 import classNames from "classnames";
+import { useInView } from "react-intersection-observer";
 
 import styles from "./MicroUpdate.module.scss";
 import { MediaItem, MediaItemData } from "./MediaItem";
@@ -18,6 +19,7 @@ export interface MicroUpdatePropsData {
 interface MicroUpdateProps extends MicroUpdatePropsData {
   className?: string;
   withPermalink?: boolean;
+  number?: number;
 }
 
 const MicroUpdate: React.FC<MicroUpdateProps> = ({
@@ -28,15 +30,29 @@ const MicroUpdate: React.FC<MicroUpdateProps> = ({
   body,
   slug,
   withPermalink = false,
+  number,
 }) => {
+  const [ref, inView] = useInView();
+
   return (
     <section
+      ref={ref}
       className={classNames(
         styles.update,
-        { [styles.text]: !media || media.length === 0 },
+        {
+          [styles.text]: !media || media.length === 0,
+          [styles.withNumber]: !!number,
+          [styles.view]: !!inView,
+        },
         className,
       )}
     >
+      {!!number && (
+        <div className={styles.lineWrapper}>
+          <span className={styles.lineNumber}>#{number}</span>
+          <div className={styles.line} />
+        </div>
+      )}
       <div className={styles.media}>
         {media.map((item, idx) => (
           <MediaItem key={idx} className={styles.mediaItem} {...item} />

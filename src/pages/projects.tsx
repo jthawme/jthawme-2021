@@ -1,12 +1,11 @@
 import React, { useMemo } from "react";
 import Helmet from "react-helmet";
 import { graphql, PageProps } from "gatsby";
-import { TextBlock } from "../components/TextBlock";
 import { ContentContainer } from "../components/ContentContainer";
 
-import styles from "../styles/pages/About.module.scss";
-import { MusicList } from "../components/MusicList";
+// import styles from "../styles/pages/About.module.scss";
 import { ListBlock, ListItem } from "../components/ListBlock";
+import { FileDirectUrl } from "../data/fragments";
 
 interface ProjectsPageProps {
   projects: {
@@ -16,7 +15,7 @@ interface ProjectsPageProps {
           slug: string;
         };
         frontmatter: {
-          main_image: string;
+          main_image: FileDirectUrl;
           title: string;
         };
       };
@@ -43,7 +42,7 @@ const ProjectsPage: React.FC<PageProps<ProjectsPageProps>> = ({ data }) => {
       .map(({ node }) => ({
         url: node.fields.slug,
         label: node.frontmatter.title,
-        image: node.frontmatter.main_image,
+        image: node.frontmatter.main_image.publicURL,
       }));
   }, [data]);
 
@@ -68,7 +67,9 @@ export const query = graphql`
             slug
           }
           frontmatter {
-            main_image
+            main_image {
+              ...DirectUrl
+            }
             title
           }
         }

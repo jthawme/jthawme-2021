@@ -5,14 +5,55 @@
 
   margin-bottom: var(--size-block-gap);
 
+  opacity: 0;
+  transform: translate3d(0, 100px, 0);
+
+  transition: {
+    duration: 0.5s;
+    property: opacity, transform;
+  }
+
+  &.view {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
   &:last-child {
     margin-bottom: 0;
+  }
+}
+
+.line {
+  height: 1px;
+  width: 40px;
+  background: linear-gradient(
+      to bottom,
+      var(--color-accent),
+      var(--color-accent-active)
+    )
+    fixed;
+  background-size: 100px;
+  background-position: top left;
+
+  @include tablet {
+    width: calc(100% + calc(var(--size-gap) / 2));
+  }
+
+  &-number {
+    font-size: small;
+
+    color: var(--color-text-weak);
+  }
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
   }
 }
 
 .media {
   grid-column: 1 / span 4;
   min-width: 0;
+  line-height: 0;
 
   @include tablet {
     grid-column: 1 / span 6;
@@ -20,6 +61,10 @@
 
   @include desktop {
     grid-column: 1 / span 7;
+
+    .with-number & {
+      grid-column: 2 / span 6;
+    }
   }
 
   .text & {
@@ -43,7 +88,7 @@
 
 .info {
   padding-top: var(--size-unit-4);
-  grid-column: 1 / span 3;
+  grid-column: 1 / span 4;
 
   .text & {
     grid-column: 1 / span 4;
@@ -110,8 +155,6 @@
 .body {
   margin-top: 1em;
 
-  font-size: var(--font-size-medium);
-
   h1,
   h2,
   h3,
@@ -126,5 +169,9 @@
 
   p {
     max-width: 60ch;
+  }
+
+  @include tablet {
+    font-size: var(--font-size-medium);
   }
 }

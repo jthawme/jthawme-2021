@@ -23,7 +23,7 @@ const NewsletterSignup: React.FC<NewsLetterSignupProps> = ({
 
     const data = formToObject(e.target as HTMLFormElement);
     window.open(
-      `https://jthaw.us7.list-manage.com/subscribe?u=84095c56a160c7e330e287eab&id=960a557bd2&MERGE1=${data.email}`,
+      `https://jthaw.us7.list-manage.com/subscribe?u=84095c56a160c7e330e287eab&id=960a557bd2&MERGE0=${data.email}`,
       "_blank",
     );
   }, []);

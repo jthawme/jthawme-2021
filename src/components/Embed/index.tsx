@@ -43,6 +43,15 @@ type TypeParams = CodeSandboxEmbed | VideoEmbed | YoutubeEmbed;
 
 const Embed: React.FC<EmbedProps> = ({ src, className }) => {
   const params = useMemo<TypeParams | false>(() => {
+    if (src.includes(".mp4")) {
+      return {
+        type: EmbedType.Video,
+        data: {
+          src,
+        },
+      };
+    }
+
     if (src.match(CODE_SANDBOX_REGEX)) {
       const [full, id] = src.match(CODE_SANDBOX_REGEX);
       return {
@@ -60,15 +69,6 @@ const Embed: React.FC<EmbedProps> = ({ src, className }) => {
         type: EmbedType.Youtube,
         data: {
           id,
-        },
-      };
-    }
-
-    if (src.includes(".mp4")) {
-      return {
-        type: EmbedType.Video,
-        data: {
-          src,
         },
       };
     }

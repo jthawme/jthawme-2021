@@ -4,6 +4,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
 } from "react";
 import { BgImage } from "../BgImage";
@@ -47,9 +48,9 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
     setBgImage(undefined);
   }, [location.pathname]);
 
-  useEffect(() => {
-    // document.documentElement.classList.toggle("dark", dark);
-  }, [dark]);
+  // useEffect(() => {
+  //   // document.documentElement.classList.toggle("dark", dark);
+  // }, [dark]);
 
   const setBgHandlers = useCallback((image?: string) => {
     if (!image) {

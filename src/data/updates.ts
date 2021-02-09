@@ -13,12 +13,18 @@ export const query = graphql`
       media {
         embed
         video {
-          src
-          image
+          src {
+            ...DirectUrl
+          }
+          image {
+            ...DirectUrl
+          }
         }
         image {
           alt
-          src
+          src {
+            ...JTLargeFluidImage
+          }
         }
       }
       title

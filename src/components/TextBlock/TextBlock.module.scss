@@ -5,7 +5,7 @@
 }
 
 .block {
-  grid-column: 3 / span 10;
+  grid-column: 1 / span 4;
 
   font-size: var(--font-size-large);
 
@@ -13,5 +13,9 @@
     font-style: normal;
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
+  }
+
+  @include tablet {
+    grid-column: 3 / span 10;
   }
 }

@@ -13,9 +13,8 @@ export const onClientEntry = () => {
 export const shouldUpdateScroll = ({ routerProps, getSavedScrollPosition }) => {
   if (routerProps.location.action === "PUSH") {
     window.scroll({
-      x: 0,
-      y: 0,
-      behavior: "smooth",
+      top: 0,
+      left: 0,
     });
   } else {
     const savedPosition = getSavedScrollPosition(routerProps.location);

@@ -9,12 +9,12 @@ import { useSiteContext } from "../SiteContext";
 
 const LINKS = [
   {
-    to: "/projects",
-    label: "Projects",
-  },
-  {
     to: "/about",
     label: "About",
+  },
+  {
+    to: "/projects",
+    label: "Projects",
   },
   {
     to: "/professional",

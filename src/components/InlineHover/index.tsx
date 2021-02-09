@@ -15,7 +15,9 @@ const InlineHover: React.FC<InlineHoverProps> = ({ text }) => {
       content: markdownRemark(fileAbsolutePath: { regex: "/meta-images.md/" }) {
         frontmatter {
           me {
-            image
+            image {
+              ...DirectUrl
+            }
           }
         }
       }
@@ -35,7 +37,7 @@ const InlineHover: React.FC<InlineHoverProps> = ({ text }) => {
 
     const list = data.content.frontmatter[key];
 
-    return list[Math.floor(Math.random() * list.length)].image;
+    return list[Math.floor(Math.random() * list.length)].image.publicURL;
   }, [data, key]);
 
   if (!url) {

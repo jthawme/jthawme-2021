@@ -7,11 +7,18 @@
 .form {
   display: flex;
 
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
 
-  font-size: var(--font-size-xx-large);
+  font-size: var(--font-size-large);
+  grid-column: 1 / span 4;
 
-  grid-column: 3 / span 10;
+  @include tablet {
+    font-size: var(--font-size-xx-large);
+    grid-column: 3 / span 10;
+    flex-direction: row;
+    align-items: center;
+  }
 
   &-wrapper {
     @include stdgrid;
@@ -26,7 +33,12 @@
   }
 
   span {
+    display: none;
     margin: 0 var(--size-unit-4);
+
+    @include tablet {
+      display: block;
+    }
   }
 
   input,
@@ -34,6 +46,7 @@
     -webkit-appearance: none;
     border-radius: 0;
     border: 0;
+    padding: var(--size-unit-1) 0;
 
     background-color: transparent;
   }

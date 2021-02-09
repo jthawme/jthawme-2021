@@ -14,7 +14,13 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
-    "gatsby-transformer-remark",
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: "images",
+        path: `${__dirname}/static/images`,
+      },
+    },
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -30,6 +36,20 @@ module.exports = {
         path: "./content/",
       },
       __key: "markdown",
+    },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          "gatsby-remark-relative-images",
+          {
+            resolve: `gatsby-remark-images`,
+            options: {},
+          },
+        ],
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -68,7 +88,7 @@ module.exports = {
                     .filter((media) => media.image && media.image.src)
                     .map(
                       (media) =>
-                        `<img src="${media.image.src}" alt="${media.image.alt}"/>`,
+                        `<img src="${media.image.src.publicURL}" alt="${media.image.alt}"/>`,
                     )} ${edge.node.rawMarkdownBody}`,
                   date: edge.node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + edge.node.fields.slug,
@@ -95,7 +115,9 @@ module.exports = {
                         media {
                           image {
                             alt
-                            src
+                            src {
+                              ...DirectUrl
+                            }
                           }
                         }
                         title

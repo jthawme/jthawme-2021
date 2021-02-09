@@ -43,7 +43,9 @@ const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
             album: track.album["#text"],
             name: track.name,
             artwork: track.image.pop()["#text"],
-            date: new Date(track.date["#text"]),
+            date: track["@attr"]
+              ? "Playing now"
+              : format(new Date(track.date["#text"]), "d LLL kk:mm"),
           };
         }),
       );
@@ -66,16 +68,17 @@ const MusicList: React.FC<MusicListProps> = ({ limit = 5, className }) => {
       {tracks.length === 0 && <span>Asking señor last.fm for tracks...</span>}
       {tracks.map((track) => (
         <div
-          key={track.id}
+          key={`${track.id}-${track.date}`}
           className={styles.row}
           {...setBgHandlers(track.artwork)}
         >
+          <div className={styles.rowArtwork}>
+            <img src={track.artwork} />
+          </div>
           <div className={styles.rowTitle}>{track.name}</div>
           <div className={styles.rowSubtitle}>{track.artist}</div>
           <div className={styles.rowSubtitle}>{track.album}</div>
-          <div className={styles.rowDate}>
-            {format(track.date, "d LLL kk:mm")}
-          </div>
+          <div className={styles.rowDate}>{track.date}</div>
         </div>
       ))}
     </div>

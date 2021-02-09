@@ -1,4 +1,27 @@
-.main {
-    position: relative;
-    height: vh(500);
+@import "common";
+
+.pool {
+  position: relative;
+}
+
+.line {
+  display: none;
+  position: absolute;
+
+  top: 0;
+  left: calc(8.8% - (var(--size-gap) / 2));
+
+  height: 100%;
+  width: 1px;
+
+  background: linear-gradient(
+      to top,
+      var(--color-accent-active),
+      var(--color-accent)
+    )
+    fixed;
+
+  @include desktop {
+    display: block;
+  }
 }

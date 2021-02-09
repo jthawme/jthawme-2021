@@ -1,8 +1,14 @@
+@import "common";
+
 :root {
   @for $i from 1 through 20 {
     --size-unit-#{$i}: #{$i * 5px};
   }
 
-  --size-gap: var(--size-unit-10);
+  --size-gap: var(--size-unit-4);
   --size-block-gap: 200px;
+
+  @include tablet {
+    --size-gap: var(--size-unit-10);
+  }
 }

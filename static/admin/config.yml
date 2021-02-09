@@ -4,13 +4,13 @@ backend:
 
 local_backend: true
 
-media_folder: /static/images
+media_folder: static/images
 public_folder: /images
 
 collections:
   - label: "Meta"
     name: "meta"
-    media_folder: "/static/images/meta"
+    media_folder: "static/images/meta"
     public_folder: "/images/meta"
     editor:
       preview: false
@@ -80,7 +80,7 @@ collections:
     folder: "content/updates"
     create: true
     slug: "{{slug}}"
-    media_folder: "/static/images/uploads"
+    media_folder: "static/images/uploads"
     public_folder: "/images/uploads"
     path: "{{slug}}-{{month}}-{{day}}/index"
     editor:
@@ -145,7 +145,7 @@ collections:
     folder: "content/project"
     create: true
     slug: "{{slug}}"
-    media_folder: "/static/images/uploads"
+    media_folder: "static/images/uploads"
     public_folder: "/images/uploads"
     path: "{{slug}}/index"
     editor:

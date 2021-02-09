@@ -7,6 +7,8 @@ import { NewsletterSignup } from "../components/NewsletterSignup";
 import { UpdatesPagination } from "../components/UpdatesPagination";
 import { MicroUpdateData, nodeToData } from "../data/updates";
 
+import styles from "../styles/pages/Home.module.scss";
+
 interface HomeData {
   updates: {
     edges: Array<{
@@ -31,9 +33,15 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
     <>
       <Helmet title="Home" />
       <ContentContainer>
-        <section>
-          {posts.map((item) => (
-            <MicroUpdate key={item.slug} withPermalink {...item} />
+        <section className={styles.pool}>
+          <div className={styles.line} />
+          {posts.map((item, idx) => (
+            <MicroUpdate
+              number={idx + 1}
+              key={item.slug}
+              withPermalink
+              {...item}
+            />
           ))}
         </section>
         <UpdatesPagination onNewPosts={onNewPosts} />
