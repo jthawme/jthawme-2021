@@ -39,6 +39,11 @@ const MediaItem: React.FC<MediaItemProps> = ({
               ? image.src.childImageSharp.fluid.src
               : image.src.publicURL
           }
+          aspectRatio={
+            "childImageSharp" in image.src
+              ? image.src.childImageSharp.fluid.aspectRatio
+              : undefined
+          }
         />
       );
       // return (

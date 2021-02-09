@@ -9,7 +9,8 @@ export const query = graphql`
   fragment JTLargeFluidImage on File {
     childImageSharp {
       fluid(maxWidth: 1200) {
-        ...GatsbyImageSharpFluid
+        src
+        aspectRatio
       }
     }
   }
@@ -17,7 +18,8 @@ export const query = graphql`
   fragment JTFluidImage on File {
     childImageSharp {
       fluid(maxWidth: 700) {
-        ...GatsbyImageSharpFluid
+        src
+        aspectRatio
       }
     }
   }
