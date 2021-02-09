@@ -116,7 +116,7 @@ module.exports = {
                           image {
                             alt
                             src {
-                              ...DirectUrl
+                              publicURL
                             }
                           }
                         }
