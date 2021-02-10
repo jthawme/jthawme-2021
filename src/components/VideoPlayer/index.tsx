@@ -51,7 +51,13 @@ const VideoPlayer: React.FC<React.VideoHTMLAttributes<HTMLVideoElement>> = ({
   const checkAudio = useCallback(() => {
     const anyVideo = videoRef.current as any;
 
-    timer(500).then(() => {
+    timer(1000).then(() => {
+      console.log(
+        "ye?",
+        anyVideo.mozHasAudio ||
+          Boolean(anyVideo.webkitAudioDecodedByteCount) ||
+          Boolean(anyVideo.audioTracks && anyVideo.audioTracks.length),
+      );
       setHasAudio(
         anyVideo.mozHasAudio ||
           Boolean(anyVideo.webkitAudioDecodedByteCount) ||
@@ -67,7 +73,8 @@ const VideoPlayer: React.FC<React.VideoHTMLAttributes<HTMLVideoElement>> = ({
         autoPlay={autoPlay}
         muted={internalMuted}
         loop={loop}
-        onLoadedData={checkAudio}
+        onPlaying={checkAudio}
+        onClick={onTogglePlay}
         {...props}
       />
 

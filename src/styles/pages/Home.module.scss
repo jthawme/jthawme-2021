@@ -8,7 +8,7 @@
   display: none;
   position: absolute;
 
-  top: 0;
+  top: var(--size-unit-4);
   left: calc((100% - (var(--size-gap) * 11)) / 12);
 
   height: 100%;

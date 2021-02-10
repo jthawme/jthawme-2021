@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo } from "react";
 import Helmet from "react-helmet";
 import { graphql, PageProps } from "gatsby";
 import { ContentContainer } from "../components/ContentContainer";
@@ -10,6 +10,7 @@ import {
   FileFluidImage,
   getImageFromSrc,
 } from "../data/fragments";
+import { loadImage } from "../utils/promises";
 
 interface ProjectsPageProps {
   projects: {
@@ -49,6 +50,10 @@ const ProjectsPage: React.FC<PageProps<ProjectsPageProps>> = ({ data }) => {
         image: getImageFromSrc(node.frontmatter.main_image),
       }));
   }, [data]);
+
+  useEffect(() => {
+    Promise.all(projectList.map((item) => loadImage(item.image)));
+  }, [projectList]);
 
   return (
     <>
