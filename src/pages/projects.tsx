@@ -5,7 +5,11 @@ import { ContentContainer } from "../components/ContentContainer";
 
 // import styles from "../styles/pages/About.module.scss";
 import { ListBlock, ListItem } from "../components/ListBlock";
-import { FileDirectUrl } from "../data/fragments";
+import {
+  FileDirectUrl,
+  FileFluidImage,
+  getImageFromSrc,
+} from "../data/fragments";
 
 interface ProjectsPageProps {
   projects: {
@@ -15,7 +19,7 @@ interface ProjectsPageProps {
           slug: string;
         };
         frontmatter: {
-          main_image: FileDirectUrl;
+          main_image: FileFluidImage;
           title: string;
         };
       };
@@ -42,7 +46,7 @@ const ProjectsPage: React.FC<PageProps<ProjectsPageProps>> = ({ data }) => {
       .map(({ node }) => ({
         url: node.fields.slug,
         label: node.frontmatter.title,
-        image: node.frontmatter.main_image.publicURL,
+        image: getImageFromSrc(node.frontmatter.main_image),
       }));
   }, [data]);
 
@@ -68,7 +72,7 @@ export const query = graphql`
           }
           frontmatter {
             main_image {
-              ...DirectUrl
+              ...JTFluidImage
             }
             title
           }
