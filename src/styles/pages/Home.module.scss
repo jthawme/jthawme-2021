@@ -9,7 +9,7 @@
   position: absolute;
 
   top: 0;
-  left: calc(8.8% - (var(--size-gap) / 2));
+  left: calc((100% - (var(--size-gap) * 11)) / 12);
 
   height: 100%;
   width: 1px;
@@ -24,4 +24,9 @@
   @include desktop {
     display: block;
   }
+}
+
+.signup {
+  max-width: 1000px;
+  margin-left: auto;
 }

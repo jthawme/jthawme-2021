@@ -17,6 +17,8 @@ interface HomeData {
   };
 }
 
+console.log(styles);
+
 const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
   const [posts, setPosts] = useState(
     data.updates.edges.map(({ node }) => ({
@@ -32,7 +34,7 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
   return (
     <>
       <Helmet title="Home" />
-      <ContentContainer>
+      <ContentContainer level="outside">
         <section className={styles.pool}>
           <div className={styles.line} />
           {posts.map((item, idx) => (
@@ -45,7 +47,7 @@ const IndexPage: React.FC<PageProps<HomeData>> = ({ data }) => {
           ))}
         </section>
         <UpdatesPagination onNewPosts={onNewPosts} />
-        <NewsletterSignup />
+        <NewsletterSignup className={styles.signup} />
       </ContentContainer>
     </>
   );

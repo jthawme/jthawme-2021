@@ -52,7 +52,7 @@
   background-position: top left;
 
   @include tablet {
-    width: calc(100% + calc(var(--size-gap) / 2));
+    width: 100%;
   }
 
   &-number {

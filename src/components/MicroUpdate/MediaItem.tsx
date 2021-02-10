@@ -4,7 +4,12 @@ import Img from "gatsby-image";
 
 import styles from "./MicroUpdate.module.scss";
 import { Embed } from "../Embed";
-import { FileDirectUrl, FileFluidImage } from "../../data/fragments";
+import {
+  FileDirectUrl,
+  FileFluidImage,
+  getAspectRatioFromSrc,
+  getImageFromSrc,
+} from "../../data/fragments";
 import { LazyImage } from "../Common/LazyImage";
 
 export interface MediaItemData {
@@ -34,16 +39,8 @@ const MediaItem: React.FC<MediaItemProps> = ({
       return (
         <LazyImage
           alt={image.alt || ""}
-          src={
-            "childImageSharp" in image.src
-              ? image.src.childImageSharp.fluid.src
-              : image.src.publicURL
-          }
-          aspectRatio={
-            "childImageSharp" in image.src
-              ? image.src.childImageSharp.fluid.aspectRatio
-              : undefined
-          }
+          src={getImageFromSrc(image.src)}
+          aspectRatio={getAspectRatioFromSrc(image.src)}
         />
       );
     }

@@ -10,6 +10,7 @@ const Footer: React.FC<{ className?: string }> = ({ className }) => {
     <ContentContainer
       tagName="footer"
       className={classNames(styles.footer, className)}
+      level="outside"
     >
       <p className={styles.info}>
         <a href="mailto:hi@jthaw.me?subject=Hey Jonny">hi@jthaw.me</a>

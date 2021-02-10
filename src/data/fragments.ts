@@ -7,6 +7,7 @@ export const query = graphql`
   }
 
   fragment JTLargeFluidImage on File {
+    publicURL
     childImageSharp {
       fluid(maxWidth: 1200) {
         src
@@ -25,14 +26,26 @@ export const query = graphql`
   }
 `;
 
-export const getImageFromSrc = (
+export const getAspectRatioFromSrc = (
   src: FileFluidImage | { publicURL: string },
-): string => {
+): number | undefined => {
   if (!src) {
     return undefined;
   }
 
-  return "childImageSharp" in src
+  return "childImageSharp" in src && src.childImageSharp
+    ? src.childImageSharp.fluid.aspectRatio
+    : undefined;
+};
+
+export const getImageFromSrc = (
+  src: FileFluidImage | { publicURL: string },
+): string | undefined => {
+  if (!src) {
+    return undefined;
+  }
+
+  return "childImageSharp" in src && src.childImageSharp
     ? src.childImageSharp.fluid.src
     : src.publicURL;
 };
@@ -42,7 +55,8 @@ export interface FileDirectUrl {
 }
 
 export interface FileFluidImage {
-  childImageSharp: {
+  publicURL: string;
+  childImageSharp?: {
     fluid: FluidObject;
   };
 }

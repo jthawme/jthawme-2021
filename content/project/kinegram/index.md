@@ -1,9 +1,9 @@
 ---
 title: Kinegram
-main_image: /images/desktop.jpg
+main_image: /images/desktop copy.jpg
 content:
   - image:
-      src: /images/desktop.jpg
+      src: /images/desktop copy.jpg
       alt: Desktop view of the app
   - image:
       src: /images/info.jpg
