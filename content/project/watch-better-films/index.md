@@ -11,7 +11,7 @@ content:
     tablet: 1 / span 2
   - image:
       src: screenshot-2021-02-10-at-16.34.55.png
-    desktop: 4 / span 9
+    desktop: 6 / span 7
     tablet: 3 / span 4
   - image:
       src: screenshot-2021-02-10-at-16.37.03.png
