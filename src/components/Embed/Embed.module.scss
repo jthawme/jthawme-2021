@@ -4,6 +4,10 @@
   padding-bottom: 100%;
   width: 100%;
 
+  &.cinematic {
+    padding-bottom: 56.25%;
+  }
+
   iframe {
     position: absolute;
 

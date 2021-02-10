@@ -141,7 +141,7 @@ const Embed: React.FC<EmbedProps> = ({ src, className }) => {
 
   if (EmbedType.Youtube === params.type) {
     return (
-      <div className={styles.embedWrapper}>
+      <div className={classNames(styles.embedWrapper, styles.cinematic)}>
         <iframe
           width="560"
           height="315"
