@@ -5,4 +5,5 @@ projects:
   - link: Endless Vine
   - link: Drum Generates
   - link: Play
+  - link: Kinegram
 ---
