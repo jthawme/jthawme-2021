@@ -3,10 +3,10 @@ title: Scanning fluorescent ink
 date: "2020-08-01T14:04:45.000Z"
 media:
   - image:
-      src: /images/uploads/1289562718878330882-0.jpg
+      src: /images/1289562718878330882-0.jpg
       alt: ""
   - image:
-      src: /images/uploads/1289562718878330882-1.jpg
+      src: /images/1289562718878330882-1.jpg
       alt: ""
 ---
 

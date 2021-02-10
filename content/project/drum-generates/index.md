@@ -1,9 +1,9 @@
 ---
 title: Drum Generates
-main_image: /images/uploads/lights.jpg
+main_image: /images/lights.jpg
 content:
   - image:
-      src: /images/uploads/half-time.jpg
+      src: /images/half-time.jpg
       alt: Half time ballad poster
     desktop: 1 / span 7
   - text:
@@ -15,19 +15,19 @@ content:
       the bars that were played by the drummer.
     desktop: 9 / span 4
   - image:
-      src: /images/uploads/ruler.jpg
+      src: /images/ruler.jpg
       alt: Top view of the mechanism
     desktop: 5 / span 6
   - image:
-      src: /images/uploads/office.jpg
+      src: /images/office.jpg
       alt: My old office
     desktop: 1 / span 4
   - image:
-      src: /images/uploads/setup.jpg
+      src: /images/setup.jpg
       alt: Setting up the drum kit
     desktop: 7 / span 6
   - image:
-      src: /images/uploads/lights.jpg
+      src: /images/lights.jpg
       alt: A small light blend of the project in progress
     desktop: 2 / span 10
   - type: text
@@ -40,11 +40,11 @@ content:
       You can see all the posters in more detail here <http://jthaw.me/drums/>
     desktop: 1 / span 6
   - image:
-      src: /images/uploads/posters.jpg
+      src: /images/posters.jpg
       alt: Posters hanging in a room
     desktop: 9 / span 4
   - image:
-      src: /images/uploads/posters2.jpg
+      src: /images/posters2.jpg
       alt: A view showing you being able to see all posters at a glance
     desktop: 1 / span 10
 ---

@@ -1,9 +1,9 @@
 ---
 title: Friends Of Kerouac
-main_image: /images/uploads/desktop1.jpg
+main_image: /images/desktop1.jpg
 content:
   - image:
-      src: /images/uploads/desktop1.jpg
+      src: /images/desktop1.jpg
       alt: Desktop view of the website's homepage
   - text: >-
       Leveraging newer technologies and libraries allowed the project to have a
@@ -15,23 +15,23 @@ content:
     desktop: 1 / span 5
     tablet: 1 / span 3
   - image:
-      src: /images/uploads/mobile.jpg
+      src: /images/mobile.jpg
     desktop: 9 / span 4
     tablet: 5 / span 2
   - image:
-      src: /images/uploads/kerouac2.jpg
+      src: /images/kerouac2.jpg
     desktop: 1 / span 10
     tablet: 1 / span 4
   - image:
-      src: /images/uploads/kerouac3.jpg
+      src: /images/kerouac3.jpg
     desktop: 6 / span 5
     tablet: 4 / span 3
   - image:
-      src: /images/uploads/kerouac4.jpg
+      src: /images/kerouac4.jpg
     desktop: 3 / span 10
     tablet: 1 / span 5
   - image:
-      src: /images/uploads/kerouac5.jpg
+      src: /images/kerouac5.jpg
     desktop: 1 / span 8
     tablet: 2 / span 5
 ---

@@ -3,7 +3,7 @@ title: Postcards
 date: "2018-12-31T15:22:16.000Z"
 media:
   - image:
-      src: /images/uploads/1079759651145699329-0.jpg
+      src: /images/1079759651145699329-0.jpg
       alt: ""
 ---
 

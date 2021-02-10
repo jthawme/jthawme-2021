@@ -1,20 +1,20 @@
 ---
 title: Endless Vine
-main_image: /images/uploads/desktop.jpg
+main_image: /images/desktop.jpg
 content:
   - image:
-      src: /images/uploads/desktop.jpg
+      src: /images/desktop.jpg
       alt: Desktop view of the app
   - image:
-      src: /images/uploads/settings.jpg
+      src: /images/settings.jpg
       alt: Minimal settings to use
     desktopSpan: 3 / span 8
   - image:
-      src: /images/uploads/mobile.jpg
+      src: /images/mobile.jpg
       alt: Responsive design
     desktopSpan: 8 / span 4
   - image:
-      src: /images/uploads/cinema.jpg
+      src: /images/cinema.jpg
       alt: Full screen black out viewing experience
     desktopSpan: 1 / span 7
 ---

@@ -3,9 +3,9 @@ title: Creative coding tip
 date: 2021-02-07T16:00:05.860Z
 media:
   - video:
-      src: /images/uploads/tip.mp4
+      src: /images/tip.mp4
   - video:
-      src: /images/uploads/colourloops.mp4
+      src: /images/colourloops.mp4
 ---
 
 Convert colours into a list of stepped colours and then step through them with _t_ to create smooth colour transitions.

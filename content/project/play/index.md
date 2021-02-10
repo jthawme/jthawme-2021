@@ -1,9 +1,9 @@
 ---
 title: Play
-main_image: /images/uploads/hand-table.jpg
+main_image: /images/hand-table.jpg
 content:
   - image:
-      src: /images/uploads/hand-table.jpg
+      src: /images/hand-table.jpg
       alt: Hands playing with the project, close up
   - desktop: 1 / span 5
     tablet: 1 / span 3
@@ -13,27 +13,27 @@ content:
 
       All of these controllers were processed by a webcam above, and ran through processing to create their output.
   - image:
-      src: /images/uploads/camera-ceiling.jpg
+      src: /images/camera-ceiling.jpg
       alt: Fixing the computer vision camera to the ceiling
     desktop: 8 / span 4
     tablet: 4 / span 3
   - image:
-      src: /images/uploads/screenprinting.jpg
+      src: /images/screenprinting.jpg
       alt: Screen printing custom guess who cards
     desktop: 2 / span 4
     tablet: 1 / span 2
   - image:
-      src: /images/uploads/custom-cards.jpg
+      src: /images/custom-cards.jpg
       alt: Prints drying
     desktop: 6 / span 7
     tablet: 3 / span 2
   - image:
-      src: /images/uploads/in-use.jpg
+      src: /images/in-use.jpg
       alt: People using the project
     desktop: 1 / span 4
     tablet: 5 / span 2
   - image:
-      src: /images/uploads/finished-table.jpg
+      src: /images/finished-table.jpg
       alt: The finished table displaying all the toys
     desktop: 3 / span 10
   - desktop: 1 / span 5
@@ -43,7 +43,7 @@ content:
 
       That little guy is just so darn happy.
   - image:
-      src: /images/uploads/receipt.jpg
+      src: /images/receipt.jpg
       alt: An example of the receipt that gets printed
     tablet: 5 / span 2
     desktop: 8 / span 5

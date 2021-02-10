@@ -1,12 +1,12 @@
 ---
 title: Neighbourgoods
-main_image: /images/uploads/landing.jpg
+main_image: /images/landing.jpg
 content:
   - image:
-      src: /images/uploads/landing.jpg
+      src: /images/landing.jpg
       alt: Desktop view of the website's homepage
   - image:
-      src: /images/uploads/tile1.jpg
+      src: /images/tile1.jpg
     desktop: 1 / span 3
     tablet: 1 / span 2
     mobile: 2 / span 2
@@ -21,23 +21,23 @@ content:
     tablet: 4 / span 3
   - image:
       alt: Home map
-      src: /images/uploads/home.jpg
+      src: /images/home.jpg
     desktop: 1 / span 8
     tablet: 1 / span 6
   - image:
-      src: /images/uploads/tile2.jpg
+      src: /images/tile2.jpg
       alt: Neighbour goods tile
     desktop: 10 / span 3
     tablet: 1 / span 2
     mobile: 2 / span 2
   - image:
-      src: /images/uploads/mobile.jpg
+      src: /images/mobile.jpg
       alt: Mobile map
     desktop: 3 / span 3
     tablet: 3 / span 2
     mobile: 1 / span 2
   - image:
-      src: /images/uploads/form.jpg
+      src: /images/form.jpg
       alt: Mobile form
     desktop: 8 / span 3
     tablet: 5 / span 2

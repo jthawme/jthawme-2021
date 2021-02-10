@@ -1,16 +1,16 @@
 ---
 me:
-  - image: /images/meta/001.jpg
-  - image: /images/meta/002.jpg
-  - image: /images/meta/003.jpg
-  - image: /images/meta/004.jpg
-  - image: /images/meta/005.jpg
-  - image: /images/meta/006.jpg
-  - image: /images/meta/007.jpg
-  - image: /images/meta/008.jpg
-  - image: /images/meta/009.jpg
-  - image: /images/meta/010.jpg
-  - image: /images/meta/011.jpg
-  - image: /images/meta/012.jpg
-  - image: /images/meta/013.gif
+  - image: /images/001.jpg
+  - image: /images/002.jpg
+  - image: /images/003.jpg
+  - image: /images/004.jpg
+  - image: /images/005.jpg
+  - image: /images/006.jpg
+  - image: /images/007.jpg
+  - image: /images/008.jpg
+  - image: /images/009.jpg
+  - image: /images/010.jpg
+  - image: /images/011.jpg
+  - image: /images/012.jpg
+  - image: /images/013.gif
 ---
