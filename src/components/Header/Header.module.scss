@@ -56,6 +56,17 @@
   flex-direction: column;
   align-items: flex-end;
 
+  transition: {
+    duration: 0.25s;
+    property: transform;
+    timing-function: ease-in-out;
+  }
+  transform: translate3d(0, -200%, 0);
+
+  .pinned & {
+    transform: translate3d(0, 0, 0);
+  }
+
   &-item {
     display: none;
     margin-left: var(--size-unit-3);

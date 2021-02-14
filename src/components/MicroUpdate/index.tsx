@@ -55,9 +55,10 @@ const MicroUpdate: React.FC<MicroUpdateProps> = ({
         </div>
       )}
       <div className={styles.media}>
-        {media.map((item, idx) => (
-          <MediaItem key={idx} className={styles.mediaItem} {...item} />
-        ))}
+        {media &&
+          media.map((item, idx) => (
+            <MediaItem key={idx} className={styles.mediaItem} {...item} />
+          ))}
       </div>
       <div className={styles.info}>
         <p className={styles.title}>

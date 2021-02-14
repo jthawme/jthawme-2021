@@ -52,12 +52,6 @@ const VideoPlayer: React.FC<React.VideoHTMLAttributes<HTMLVideoElement>> = ({
     const anyVideo = videoRef.current as any;
 
     timer(1000).then(() => {
-      console.log(
-        "ye?",
-        anyVideo.mozHasAudio ||
-          Boolean(anyVideo.webkitAudioDecodedByteCount) ||
-          Boolean(anyVideo.audioTracks && anyVideo.audioTracks.length),
-      );
       setHasAudio(
         anyVideo.mozHasAudio ||
           Boolean(anyVideo.webkitAudioDecodedByteCount) ||

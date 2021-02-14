@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback } from "react";
 import { Link } from "gatsby";
 import classNames from "classnames";
 
@@ -28,7 +28,7 @@ const LINKS = [
 ];
 
 const Header: React.FC<{ className?: string }> = ({ className }) => {
-  const { dark, menuOpen, setMenuOpen } = useSiteContext();
+  const { dark, menuOpen, setMenuOpen, menuPinned } = useSiteContext();
 
   const toggleMenu = useCallback(() => {
     setMenuOpen(!menuOpen);
@@ -40,7 +40,7 @@ const Header: React.FC<{ className?: string }> = ({ className }) => {
         tagName="header"
         className={classNames(
           styles.header,
-          { [styles.open]: menuOpen },
+          { [styles.open]: menuOpen, [styles.pinned]: menuPinned },
           className,
         )}
         level="outside"

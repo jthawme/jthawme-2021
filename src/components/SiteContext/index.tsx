@@ -7,6 +7,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+import { clamp, tickUpdate } from "../../utils/utils";
 import { BgImage } from "../BgImage";
 import { Album } from "../MusicList";
 
@@ -24,6 +25,7 @@ interface SiteContextData {
     onMouseEnter: () => void;
     onMouseLeave: () => void;
   } | null;
+  menuPinned: boolean;
 }
 
 const SiteContext = createContext<SiteContextData>({
@@ -37,6 +39,7 @@ const SiteContext = createContext<SiteContextData>({
     onMouseEnter: () => false,
     onMouseLeave: () => false,
   }),
+  menuPinned: true,
 });
 
 const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
@@ -45,6 +48,7 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
 }) => {
   const [dark, setDark] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [menuPinned, setMenuPinned] = useState(true);
   const [tracks, setTracks] = useState<Album[]>([]);
   const [bgImage, setBgImage] = useState<string | undefined>();
 
@@ -53,6 +57,25 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
     setBgImage(undefined);
     setMenuOpen(false);
   }, [location.pathname]);
+
+  useEffect(() => {
+    let lastY = 0;
+    let distance = 0;
+    // let direction = 0;
+
+    const cb = tickUpdate(() => {
+      const deltaY = window.scrollY - lastY;
+      distance = clamp(distance + deltaY, -50, 50);
+
+      setMenuPinned(window.scrollY < 100 || distance <= 0);
+
+      lastY = window.scrollY;
+    });
+
+    window.addEventListener("scroll", cb, { passive: false });
+
+    return () => window.removeEventListener("scroll", cb);
+  }, []);
 
   // useEffect(() => {
   //   // document.documentElement.classList.toggle("dark", dark);
@@ -80,6 +103,7 @@ const SiteContainer: React.FC<{ location: PageProps["location"] }> = ({
         setBgHandlers,
         menuOpen,
         setMenuOpen,
+        menuPinned,
       }}
     >
       {children}
