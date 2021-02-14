@@ -18,10 +18,12 @@ const UpdateTemplate: React.FC<PageProps<UpdateTemplateProps>> = ({ data }) => {
         title={data.update.frontmatter.title}
         description={data.update.rawMarkdownBody}
         image={
-          data.update.frontmatter.media &&
-          getImageFromSrc(
-            data.update.frontmatter.media.find((m) => m.image?.src)?.image?.src,
-          )
+          data.update.frontmatter.media
+            ? getImageFromSrc(
+                data.update.frontmatter.media.find((m) => m.image?.src)?.image
+                  ?.src,
+              )
+            : undefined
         }
         urlPath={data.update.fields.slug}
       />

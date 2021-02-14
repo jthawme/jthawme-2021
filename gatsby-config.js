@@ -84,7 +84,7 @@ module.exports = {
               return updates.edges.map((edge) => {
                 return {
                   title: edge.node.title,
-                  description: `${edge.node.frontmatter.media
+                  description: `${(edge.node.frontmatter.media || [])
                     .filter((media) => media.image && media.image.src)
                     .map(
                       (media) =>
