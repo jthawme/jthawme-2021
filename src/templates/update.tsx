@@ -17,9 +17,12 @@ const UpdateTemplate: React.FC<PageProps<UpdateTemplateProps>> = ({ data }) => {
       <SEO
         title={data.update.frontmatter.title}
         description={data.update.rawMarkdownBody}
-        image={getImageFromSrc(
-          data.update.frontmatter.media.find((m) => m.image?.src)?.image?.src,
-        )}
+        image={
+          data.update.frontmatter.media &&
+          getImageFromSrc(
+            data.update.frontmatter.media.find((m) => m.image?.src)?.image?.src,
+          )
+        }
         urlPath={data.update.fields.slug}
       />
       <ContentContainer>

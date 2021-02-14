@@ -23,7 +23,7 @@ const updates = fs
   }))
   .map(({ obj, name }) => ({
     ...obj.attributes,
-    media: obj.attributes.media.map((m) => {
+    media: (obj.attributes.media || []).map((m) => {
       if (m.video) {
         return {
           video: {
