@@ -6,6 +6,7 @@ import { MicroUpdate } from "../components/MicroUpdate";
 import { MicroUpdateData, nodeToData } from "../data/updates";
 import { SEO } from "../components/SEO";
 import { getImageFromSrc } from "../data/fragments";
+import { NewsletterSignup } from "../components/NewsletterSignup";
 
 interface UpdateTemplateProps {
   update: MicroUpdateData;
@@ -29,6 +30,8 @@ const UpdateTemplate: React.FC<PageProps<UpdateTemplateProps>> = ({ data }) => {
       />
       <ContentContainer>
         <MicroUpdate {...nodeToData(data.update)} />
+
+        <NewsletterSignup />
       </ContentContainer>
     </>
   );
