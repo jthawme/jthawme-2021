@@ -6,3 +6,5 @@ media:
       src: out.mp4
 ---
 Might write on here about it properly, for somewhere to vent publicly, but the whole idea of NFTs really irks me.
+
+\*Made with photomosh
