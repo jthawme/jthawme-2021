@@ -69,6 +69,7 @@ const VideoPlayer: React.FC<React.VideoHTMLAttributes<HTMLVideoElement>> = ({
         loop={loop}
         onPlaying={checkAudio}
         onClick={onTogglePlay}
+        playsInline
         {...props}
       />
 
