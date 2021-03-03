@@ -11,4 +11,4 @@ Eco-Friendly (ish)\
 Decentralised\
 Secondary Market (Tipp-ex)
 
-Send any enquiries to get your hands on these very rare tokens to mint from the comfort of your own home to hi@jthaw.me?subject=GetRichQuick
+Send any enquiries to get your hands on these very rare tokens to mint from the comfort of your own home to [hi@jthaw.me?subject=GetRichQuick](mailto:hi@jthaw.me?subject=GetRichQuick)
