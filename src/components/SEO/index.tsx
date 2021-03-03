@@ -63,11 +63,7 @@ const SEO: React.FC<SEOProps> = ({
         },
         {
           property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:url`,
-          content: title,
+          content: title || "JT",
         },
         {
           property: `og:description`,
