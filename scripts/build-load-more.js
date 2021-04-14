@@ -5,6 +5,7 @@ const slugify = require("slugify");
 
 const updatesFolderPath = path.join(__dirname, "..", "content", "updates");
 const dataFolderPath = path.join(__dirname, "..", "static", "data");
+const imagesFolderPath = path.join(__dirname, "..", "static", "images");
 const getUpdateFile = (name) =>
   path.join(__dirname, "..", "content", "updates", name, "index.md");
 
