@@ -150,7 +150,7 @@ exports.onPostBuild = async ({ graphql }) => {
     10,
   );
 
-  const dataFolderPath = path.join(__dirname, "static", "data");
+  const dataFolderPath = path.join(__dirname, "public", "data");
 
   if (!fs.existsSync(dataFolderPath)) {
     fs.mkdirSync(dataFolderPath);
