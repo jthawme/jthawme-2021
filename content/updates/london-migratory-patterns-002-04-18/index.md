@@ -12,3 +12,5 @@ That is because you can see its red around the outside at night, and turns blue 
 Also interestingly my data spans over the 12th april, when shops etc. were able to open after lockdown measures, so you can see that post the 12th april it becomes a lot more exaggerated, especially the 17th april which is the first saturday since measures changed.
 
 Data is cool!
+
+[migratory.jthaw.club](https://migratory.jthaw.club) (takes a long time to load, sorry)
