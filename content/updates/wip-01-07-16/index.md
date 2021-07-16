@@ -5,4 +5,4 @@ media:
   - image:
       src: wish.jpg
 ---
-Work in progress from a collection of work exploring the notion of **The good old days**
+Work in progress from a collection of work exploring the notion of '**The good old days'**
