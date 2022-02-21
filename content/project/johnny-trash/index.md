@@ -29,3 +29,5 @@ content:
     desktop: 7 / span 6
 ---
 I went to New York and felt inspired (truly) by the city, it was full of creative energy and I can't wait to go back. Its also full of 'trash' (read 'rubbish') so I thought I'd combine the 2 and make a love letter to the city.
+
+All photos and design done by me. Trash done by New Yorkers
