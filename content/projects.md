@@ -1,11 +1,12 @@
 ---
 projects:
   - link: Friends Of Kerouac
+  - link: Watch Better Films
   - link: Neighbourgoods
   - link: Drum Generates
   - link: Play
   - link: Stacc
+  - link: Johnny Trash
   - link: Endless Vine
   - link: Kinegram
-  - link: Watch Better Films
 ---
