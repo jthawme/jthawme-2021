@@ -5,6 +5,8 @@ media:
   - image:
       src: poem.png
   - embed: https://www.youtube.com/watch?v=oEBGyQsRUEA
+  - image:
+      src: sfpc_enp-showcase-0015.jpg
 ---
 I﻿ recently attended SFPC finally to do a summer course called, [Experiments in Networked Performance](https://sfpc.study/sessions/summer-23/networked-performance)
 
@@ -13,3 +15,5 @@ I﻿t was really great but I suppose it didn't scratch an itch, rather make me m
 M﻿e, Dan and Lauren formed a group to make a small project, where the online audience fed emotional statements into the live performance and the audience IRL were the conduits in which to voice these statements. Then the computer recorded what it could here to make a beautiful corpse-esque poem. It was nice!
 
 T﻿he mockup is what was heard by the computer laid out
+
+P﻿hoto credit [Minu Han](https://www.han-minu.com/)
